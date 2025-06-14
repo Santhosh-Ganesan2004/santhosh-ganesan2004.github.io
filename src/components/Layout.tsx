@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Linkedin, Twitter, Github } from 'lucide-react';
@@ -55,6 +56,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 Projects
               </Link>
               <Link
+                to="/blog"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  isActive('/blog') 
+                    ? 'bg-blue-600 text-white' 
+                    : 'text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                Blog
+              </Link>
+              <Link
                 to="/certifications"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive('/certifications') 
@@ -104,6 +115,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   }`}
                 >
                   Projects
+                </Link>
+                <Link
+                  to="/blog"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                    isActive('/blog') 
+                      ? 'bg-blue-600 text-white' 
+                      : 'text-slate-600 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  Blog
                 </Link>
                 <Link
                   to="/certifications"
