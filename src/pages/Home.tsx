@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Award, Briefcase } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
+import TypeWriter from '../components/TypeWriter';
 
 const Home: React.FC = () => {
   return (
@@ -35,11 +36,11 @@ const Home: React.FC = () => {
               <h2 className="text-2xl md:text-3xl text-gray-300 mb-6">
                 AI + IoT Engineer
               </h2>
-              <p className="text-lg text-gray-400 leading-relaxed max-w-2xl">
-                Passionate about bridging the gap between artificial intelligence and the Internet of Things. 
-                With over 5 years of experience, I specialize in creating intelligent systems that transform 
-                how we interact with the physical world through cutting-edge AI algorithms and IoT architectures.
-              </p>
+              <TypeWriter
+                text="Passionate about bridging the gap between artificial intelligence and the Internet of Things. With over 5 years of experience, I specialize in creating intelligent systems that transform how we interact with the physical world through cutting-edge AI algorithms and IoT architectures."
+                speed={30}
+                className="text-lg text-gray-400 leading-relaxed max-w-2xl"
+              />
             </div>
           </div>
         </div>
