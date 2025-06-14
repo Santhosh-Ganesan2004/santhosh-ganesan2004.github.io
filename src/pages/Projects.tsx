@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink, Search, X } from 'lucide-react';
@@ -104,16 +103,16 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               My Projects
             </span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-8">
             A collection of AI and IoT projects showcasing innovative solutions 
             for real-world problems across various industries.
           </p>
@@ -122,13 +121,13 @@ const Projects: React.FC = () => {
           <div className="max-w-4xl mx-auto space-y-6">
             {/* Search Bar */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
               <Input
                 type="text"
                 placeholder="Search projects..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-slate-800/50 border-slate-600 text-white placeholder:text-gray-400 focus:border-blue-500"
+                className="pl-10 bg-white/80 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:border-blue-500 dark:focus:border-blue-400"
               />
             </div>
 
@@ -141,8 +140,8 @@ const Projects: React.FC = () => {
                     onClick={() => toggleTag(tech)}
                     className={`px-3 py-1 text-sm rounded-full border transition-all duration-200 ${
                       selectedTags.includes(tech)
-                        ? 'bg-blue-600 text-white border-blue-500'
-                        : 'bg-slate-800/50 text-gray-300 border-slate-600 hover:border-blue-500/50'
+                        ? 'bg-blue-600 text-white border-blue-600'
+                        : 'bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-600 hover:border-blue-500 dark:hover:border-blue-400'
                     }`}
                   >
                     {tech}
@@ -155,7 +154,7 @@ const Projects: React.FC = () => {
                 <div className="flex justify-center">
                   <button
                     onClick={clearFilters}
-                    className="flex items-center space-x-2 text-sm text-gray-400 hover:text-white transition-colors"
+                    className="flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
                   >
                     <X size={16} />
                     <span>Clear filters</span>
@@ -169,7 +168,7 @@ const Projects: React.FC = () => {
         {/* Results Count */}
         {(searchTerm || selectedTags.length > 0) && (
           <div className="text-center mb-8">
-            <p className="text-gray-400">
+            <p className="text-slate-600 dark:text-slate-400">
               Showing {filteredProjects.length} of {projects.length} projects
             </p>
           </div>
@@ -180,7 +179,7 @@ const Projects: React.FC = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 hover:scale-105"
+              className="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-700/80 hover:border-blue-500/50 dark:hover:border-blue-400/50 transition-all duration-300 hover:scale-105 shadow-xl"
             >
               {/* Project Image */}
               <div className="relative overflow-hidden">
@@ -194,10 +193,10 @@ const Projects: React.FC = () => {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-400 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
 
@@ -208,8 +207,8 @@ const Projects: React.FC = () => {
                       key={tech}
                       className={`px-3 py-1 text-xs rounded-full border transition-all duration-200 ${
                         selectedTags.includes(tech)
-                          ? 'bg-blue-600/30 text-blue-300 border-blue-500/50'
-                          : 'bg-blue-600/20 text-blue-300 border-blue-500/30'
+                          ? 'bg-blue-600/20 text-blue-600 dark:text-blue-400 border-blue-500/50'
+                          : 'bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border-blue-500/30'
                       }`}
                     >
                       {tech}
@@ -231,7 +230,7 @@ const Projects: React.FC = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-slate-700 hover:bg-slate-600 text-white py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
+                      className="bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
                     >
                       <ExternalLink size={16} />
                     </a>
@@ -245,10 +244,10 @@ const Projects: React.FC = () => {
         {/* No Results */}
         {filteredProjects.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-400 text-lg">No projects found matching your criteria.</p>
+            <p className="text-slate-600 dark:text-slate-400 text-lg">No projects found matching your criteria.</p>
             <button
               onClick={clearFilters}
-              className="mt-4 text-blue-400 hover:text-blue-300 transition-colors"
+              className="mt-4 text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
             >
               Clear filters to see all projects
             </button>

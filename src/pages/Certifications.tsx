@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Award, ExternalLink, Calendar, Building, Search, X } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -89,17 +88,17 @@ const Certifications: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-grow py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900 flex flex-col">
+      <div className="flex-grow py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                 Certifications
               </span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-8">
               Professional certifications in AI, cloud computing, and IoT technologies 
               from leading industry providers.
             </p>
@@ -108,13 +107,13 @@ const Certifications: React.FC = () => {
             <div className="max-w-4xl mx-auto space-y-6">
               {/* Search Bar */}
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
                 <Input
                   type="text"
                   placeholder="Search certifications..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 bg-slate-800/50 border-slate-600 text-white placeholder:text-gray-400 focus:border-purple-500"
+                  className="pl-10 bg-white/80 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:border-blue-500 dark:focus:border-blue-400"
                 />
               </div>
 
@@ -127,8 +126,8 @@ const Certifications: React.FC = () => {
                       onClick={() => toggleCategory(category)}
                       className={`px-4 py-2 text-sm rounded-full border transition-all duration-200 ${
                         selectedCategories.includes(category)
-                          ? 'bg-purple-600 text-white border-purple-500'
-                          : 'bg-slate-800/50 text-gray-300 border-slate-600 hover:border-purple-500/50'
+                          ? 'bg-blue-600 text-white border-blue-600'
+                          : 'bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-600 hover:border-blue-500 dark:hover:border-blue-400'
                       }`}
                     >
                       {category}
@@ -141,7 +140,7 @@ const Certifications: React.FC = () => {
                   <div className="flex justify-center">
                     <button
                       onClick={clearFilters}
-                      className="flex items-center space-x-2 text-sm text-gray-400 hover:text-white transition-colors"
+                      className="flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
                     >
                       <X size={16} />
                       <span>Clear filters</span>
@@ -155,7 +154,7 @@ const Certifications: React.FC = () => {
           {/* Results Count */}
           {(searchTerm || selectedCategories.length > 0) && (
             <div className="text-center mb-8">
-              <p className="text-gray-400">
+              <p className="text-slate-600 dark:text-slate-400">
                 Showing {filteredCertifications.length} of {certifications.length} certifications
               </p>
             </div>
@@ -166,39 +165,39 @@ const Certifications: React.FC = () => {
             {filteredCertifications.map((cert) => (
               <Dialog key={cert.id}>
                 <DialogTrigger asChild>
-                  <div className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div className="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/80 dark:border-slate-700/80 hover:border-blue-500/50 dark:hover:border-blue-400/50 transition-all duration-300 hover:scale-105 cursor-pointer shadow-xl">
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center mr-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center mr-4">
                         <Award className="text-white" size={24} />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors">
+                        <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                           {cert.name}
                         </h3>
-                        <p className="text-purple-400 text-sm">{cert.category}</p>
+                        <p className="text-blue-600 dark:text-blue-400 text-sm">{cert.category}</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-center text-purple-400 text-sm mb-3">
+                    <div className="flex items-center text-blue-600 dark:text-blue-400 text-sm mb-3">
                       <Building size={14} className="mr-2" />
-                      <span>{cert.issuer}</span>
+                      <span className="text-slate-600 dark:text-slate-400">{cert.issuer}</span>
                       <Calendar size={14} className="ml-4 mr-2" />
-                      <span>{cert.date}</span>
+                      <span className="text-slate-600 dark:text-slate-400">{cert.date}</span>
                     </div>
                     
-                    <p className="text-gray-300 text-sm line-clamp-3">
+                    <p className="text-slate-600 dark:text-slate-400 text-sm line-clamp-3">
                       {cert.description}
                     </p>
                     
-                    <div className="mt-4 text-purple-400 text-sm font-medium">
+                    <div className="mt-4 text-blue-600 dark:text-blue-400 text-sm font-medium">
                       Click to view details →
                     </div>
                   </div>
                 </DialogTrigger>
                 
-                <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-slate-800 border-slate-600">
+                <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600">
                   <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                       {cert.name}
                     </DialogTitle>
                   </DialogHeader>
@@ -206,28 +205,28 @@ const Certifications: React.FC = () => {
                   <div className="space-y-6">
                     {/* Certification Info */}
                     <div className="flex flex-wrap gap-4 text-sm">
-                      <div className="flex items-center text-purple-400">
+                      <div className="flex items-center text-blue-600 dark:text-blue-400">
                         <Building size={16} className="mr-2" />
-                        <span className="text-white">{cert.issuer}</span>
+                        <span className="text-slate-900 dark:text-slate-100">{cert.issuer}</span>
                       </div>
-                      <div className="flex items-center text-purple-400">
+                      <div className="flex items-center text-blue-600 dark:text-blue-400">
                         <Calendar size={16} className="mr-2" />
-                        <span className="text-white">{cert.date}</span>
+                        <span className="text-slate-900 dark:text-slate-100">{cert.date}</span>
                       </div>
                       {cert.certificateId && (
-                        <div className="text-purple-400">
-                          <span className="text-white">ID: {cert.certificateId}</span>
+                        <div className="text-blue-600 dark:text-blue-400">
+                          <span className="text-slate-900 dark:text-slate-100">ID: {cert.certificateId}</span>
                         </div>
                       )}
-                      <div className="bg-purple-600/20 text-purple-300 px-3 py-1 rounded-full text-xs border border-purple-500/30">
+                      <div className="bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full text-xs border border-blue-500/30">
                         {cert.category}
                       </div>
                     </div>
                     
                     {/* Description */}
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-3">Description</h4>
-                      <p className="text-gray-300 leading-relaxed">
+                      <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">Description</h4>
+                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                         {cert.description}
                       </p>
                     </div>
@@ -235,11 +234,11 @@ const Certifications: React.FC = () => {
                     {/* Skills */}
                     {cert.skills && (
                       <div>
-                        <h4 className="text-lg font-semibold text-white mb-3">Skills Validated</h4>
+                        <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">Skills Validated</h4>
                         <div className="grid grid-cols-1 gap-2">
                           {cert.skills.map((skill, index) => (
-                            <div key={index} className="flex items-center text-gray-300">
-                              <div className="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
+                            <div key={index} className="flex items-center text-slate-600 dark:text-slate-400">
+                              <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full mr-3"></div>
                               {skill}
                             </div>
                           ))}
@@ -248,12 +247,12 @@ const Certifications: React.FC = () => {
                     )}
                     
                     {/* Certificate Link */}
-                    <div className="pt-4 border-t border-slate-600">
+                    <div className="pt-4 border-t border-slate-200 dark:border-slate-600">
                       <a
                         href={cert.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                        className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
                       >
                         <span>View Certificate</span>
                         <ExternalLink size={16} />
@@ -268,10 +267,10 @@ const Certifications: React.FC = () => {
           {/* No Results */}
           {filteredCertifications.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-400 text-lg">No certifications found matching your criteria.</p>
+              <p className="text-slate-600 dark:text-slate-400 text-lg">No certifications found matching your criteria.</p>
               <button
                 onClick={clearFilters}
-                className="mt-4 text-purple-400 hover:text-purple-300 transition-colors"
+                className="mt-4 text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
               >
                 Clear filters to see all certifications
               </button>
