@@ -52,11 +52,11 @@ const Certifications: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-deep-purple to-teal bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-royal-blue to-amber bg-clip-text text-transparent">
               Certifications
             </span>
           </h1>
-          <p className="text-xl text-dark-gray dark:text-light-gray max-w-3xl mx-auto">
+          <p className="text-xl text-white max-w-3xl mx-auto">
             Professional certifications in AI, cloud computing, and IoT technologies 
             from leading industry providers.
           </p>
@@ -67,38 +67,38 @@ const Certifications: React.FC = () => {
           {certifications.map((cert) => (
             <Dialog key={cert.id}>
               <DialogTrigger asChild>
-                <div className="group bg-white dark:bg-deep-purple rounded-2xl p-6 border border-teal/20 hover:border-teal/50 transition-all duration-300 hover:scale-105 cursor-pointer">
+                <div className="group bg-gunmetal-gray rounded-2xl p-6 border border-royal-blue/20 hover:border-royal-blue/50 transition-all duration-300 hover:scale-105 cursor-pointer">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-deep-purple to-teal rounded-lg flex items-center justify-center mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-royal-blue to-amber rounded-lg flex items-center justify-center mr-4">
                       <Award className="text-white" size={24} />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-dark-gray dark:text-white group-hover:text-teal transition-colors">
+                      <h3 className="text-lg font-semibold text-white group-hover:text-royal-blue transition-colors">
                         {cert.name}
                       </h3>
                     </div>
                   </div>
                   
-                  <div className="flex items-center text-teal text-sm mb-3">
+                  <div className="flex items-center text-royal-blue text-sm mb-3">
                     <Building size={14} className="mr-2" />
                     <span>{cert.issuer}</span>
                     <Calendar size={14} className="ml-4 mr-2" />
                     <span>{cert.date}</span>
                   </div>
                   
-                  <p className="text-dark-gray dark:text-light-gray text-sm line-clamp-3">
+                  <p className="text-white text-sm line-clamp-3">
                     {cert.description}
                   </p>
                   
-                  <div className="mt-4 text-teal text-sm font-medium">
+                  <div className="mt-4 text-royal-blue text-sm font-medium">
                     Click to view details →
                   </div>
                 </div>
               </DialogTrigger>
               
-              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-deep-purple border-amber">
+              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-gunmetal-gray border-amber">
                 <DialogHeader>
-                  <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-deep-purple to-teal bg-clip-text text-transparent">
+                  <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-royal-blue to-amber bg-clip-text text-transparent">
                     {cert.name}
                   </DialogTitle>
                 </DialogHeader>
@@ -106,25 +106,25 @@ const Certifications: React.FC = () => {
                 <div className="space-y-6">
                   {/* Certification Info */}
                   <div className="flex flex-wrap gap-4 text-sm">
-                    <div className="flex items-center text-teal">
+                    <div className="flex items-center text-royal-blue">
                       <Building size={16} className="mr-2" />
-                      <span className="text-dark-gray dark:text-white">{cert.issuer}</span>
+                      <span className="text-white">{cert.issuer}</span>
                     </div>
-                    <div className="flex items-center text-teal">
+                    <div className="flex items-center text-royal-blue">
                       <Calendar size={16} className="mr-2" />
-                      <span className="text-dark-gray dark:text-white">{cert.date}</span>
+                      <span className="text-white">{cert.date}</span>
                     </div>
                     {cert.certificateId && (
-                      <div className="text-teal">
-                        <span className="text-dark-gray dark:text-white">ID: {cert.certificateId}</span>
+                      <div className="text-royal-blue">
+                        <span className="text-white">ID: {cert.certificateId}</span>
                       </div>
                     )}
                   </div>
                   
                   {/* Description */}
                   <div>
-                    <h4 className="text-lg font-semibold text-dark-gray dark:text-white mb-3">Description</h4>
-                    <p className="text-dark-gray dark:text-light-gray leading-relaxed">
+                    <h4 className="text-lg font-semibold text-white mb-3">Description</h4>
+                    <p className="text-white leading-relaxed">
                       {cert.description}
                     </p>
                   </div>
@@ -132,11 +132,11 @@ const Certifications: React.FC = () => {
                   {/* Skills */}
                   {cert.skills && (
                     <div>
-                      <h4 className="text-lg font-semibold text-dark-gray dark:text-white mb-3">Skills Validated</h4>
+                      <h4 className="text-lg font-semibold text-white mb-3">Skills Validated</h4>
                       <div className="grid grid-cols-1 gap-2">
                         {cert.skills.map((skill, index) => (
-                          <div key={index} className="flex items-center text-dark-gray dark:text-light-gray">
-                            <div className="w-2 h-2 bg-teal rounded-full mr-3"></div>
+                          <div key={index} className="flex items-center text-white">
+                            <div className="w-2 h-2 bg-royal-blue rounded-full mr-3"></div>
                             {skill}
                           </div>
                         ))}
@@ -150,7 +150,7 @@ const Certifications: React.FC = () => {
                       href={cert.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-2 bg-teal hover:bg-amber text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                      className="inline-flex items-center space-x-2 bg-royal-blue hover:bg-amber text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
                     >
                       <span>View Certificate</span>
                       <ExternalLink size={16} />

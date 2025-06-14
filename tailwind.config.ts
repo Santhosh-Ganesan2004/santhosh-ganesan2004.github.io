@@ -66,13 +66,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Updated custom colors for Steel Blue/Burnt Orange theme
-				'steel-blue': 'hsl(var(--steel-blue))',
-				'burnt-orange': 'hsl(var(--burnt-orange))',
-				'military-green': 'hsl(var(--military-green))',
-				'crimson-red': 'hsl(var(--crimson-red))',
-				'light-ash-gray': 'hsl(var(--light-ash-gray))',
-				'jet-black': 'hsl(var(--jet-black))',
+				// Updated custom colors for Charcoal Black/Royal Blue theme
+				'charcoal-black': 'hsl(var(--charcoal-black))',
+				'gunmetal-gray': 'hsl(var(--gunmetal-gray))',
+				'royal-blue': 'hsl(var(--royal-blue))',
+				'steel-gray': 'hsl(var(--steel-gray))',
+				'amber': 'hsl(var(--amber))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

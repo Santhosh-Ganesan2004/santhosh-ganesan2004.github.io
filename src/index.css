@@ -47,13 +47,12 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Steel Blue/Burnt Orange color palette */
-    --steel-blue: 210 44% 36%;
-    --burnt-orange: 22 89% 52%;
-    --military-green: 120 25% 35%;
-    --crimson-red: 348 83% 47%;
-    --light-ash-gray: 0 0% 90%;
-    --jet-black: 0 0% 10%;
+    /* Charcoal Black/Royal Blue color palette */
+    --charcoal-black: 0 0% 20%;
+    --gunmetal-gray: 210 7% 39%;
+    --royal-blue: 225 73% 57%;
+    --steel-gray: 210 11% 71%;
+    --amber: 45 93% 47%;
   }
 
   .dark {
@@ -93,9 +92,12 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Dark mode adjustments for custom colors */
-    --light-ash-gray: 0 0% 20%;
-    --jet-black: 0 0% 85%;
+    /* Dark mode keeps the same colors */
+    --charcoal-black: 0 0% 20%;
+    --gunmetal-gray: 210 7% 39%;
+    --royal-blue: 225 73% 57%;
+    --steel-gray: 210 11% 71%;
+    --amber: 45 93% 47%;
   }
 }
 
@@ -107,17 +109,17 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Roboto', sans-serif;
-    background-color: hsl(var(--light-ash-gray));
-    color: hsl(var(--jet-black));
+    background-color: hsl(var(--charcoal-black));
+    color: white;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
-    color: hsl(var(--steel-blue));
+    color: white;
   }
 
   a {
-    color: hsl(var(--military-green));
+    color: hsl(var(--royal-blue));
     text-decoration: none;
   }
 
