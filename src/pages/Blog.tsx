@@ -127,16 +127,16 @@ const Blog: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               Blog
             </span>
           </h1>
-          <p className="text-xl text-slate-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-8">
             Insights, tutorials, and thoughts on AI, IoT, and emerging technologies.
           </p>
 
@@ -144,13 +144,13 @@ const Blog: React.FC = () => {
           <div className="max-w-4xl mx-auto space-y-6">
             {/* Search Bar */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
               <Input
                 type="text"
                 placeholder="Search blog posts..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-white/70 dark:bg-slate-800/50 border-blue-200/50 dark:border-slate-600 text-slate-800 dark:text-white placeholder:text-gray-400 focus:border-blue-500"
+                className="pl-10 bg-white/80 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:border-blue-500 dark:focus:border-blue-400"
               />
             </div>
 
@@ -163,8 +163,8 @@ const Blog: React.FC = () => {
                     onClick={() => toggleTag(tag)}
                     className={`px-3 py-1 text-sm rounded-full border transition-all duration-200 ${
                       selectedTags.includes(tag)
-                        ? 'bg-blue-600 text-white border-blue-500'
-                        : 'bg-white/70 dark:bg-slate-800/50 text-slate-600 dark:text-gray-300 border-blue-200/50 dark:border-slate-600 hover:border-blue-400/70 dark:hover:border-blue-500/50'
+                        ? 'bg-blue-600 text-white border-blue-600'
+                        : 'bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-600 hover:border-blue-500 dark:hover:border-blue-400'
                     }`}
                   >
                     {tag}
@@ -177,7 +177,7 @@ const Blog: React.FC = () => {
                 <div className="flex justify-center">
                   <button
                     onClick={clearFilters}
-                    className="flex items-center space-x-2 text-sm text-slate-600 dark:text-gray-400 hover:text-slate-800 dark:hover:text-white transition-colors"
+                    className="flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
                   >
                     <X size={16} />
                     <span>Clear filters</span>
@@ -191,7 +191,7 @@ const Blog: React.FC = () => {
         {/* Results Count */}
         {(searchTerm || selectedTags.length > 0) && (
           <div className="text-center mb-8">
-            <p className="text-slate-600 dark:text-gray-400">
+            <p className="text-slate-600 dark:text-slate-400">
               Showing {filteredPosts.length} of {blogPosts.length} posts
             </p>
           </div>
@@ -202,7 +202,7 @@ const Blog: React.FC = () => {
           {filteredPosts.map((post) => (
             <article
               key={post.id}
-              className="group bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-200/50 dark:border-blue-500/20 hover:border-blue-400/70 dark:hover:border-blue-500/50 transition-all duration-300 hover:scale-105 shadow-lg"
+              className="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-700/80 hover:border-blue-500/50 dark:hover:border-blue-400/50 transition-all duration-300 hover:scale-105 shadow-xl"
             >
               {/* Post Image */}
               <div className="relative overflow-hidden">
@@ -216,16 +216,16 @@ const Blog: React.FC = () => {
 
               {/* Post Content */}
               <div className="p-6">
-                <h2 className="text-xl font-bold text-slate-800 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                   {post.title}
                 </h2>
                 
-                <p className="text-slate-600 dark:text-gray-400 mb-4 text-sm leading-relaxed line-clamp-3">
+                <p className="text-slate-600 dark:text-slate-400 mb-4 text-sm leading-relaxed line-clamp-3">
                   {post.excerpt}
                 </p>
 
                 {/* Meta Information */}
-                <div className="flex items-center justify-between text-xs text-slate-500 dark:text-gray-500 mb-4">
+                <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-500 mb-4">
                   <div className="flex items-center space-x-2">
                     <Calendar size={14} />
                     <span>{formatDate(post.publishedAt)}</span>
@@ -243,8 +243,8 @@ const Blog: React.FC = () => {
                       key={tag}
                       className={`px-3 py-1 text-xs rounded-full border transition-all duration-200 ${
                         selectedTags.includes(tag)
-                          ? 'bg-blue-600/30 text-blue-600 dark:text-blue-300 border-blue-500/50'
-                          : 'bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-300 border-blue-500/30'
+                          ? 'bg-blue-600/20 text-blue-600 dark:text-blue-400 border-blue-500/50'
+                          : 'bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border-blue-500/30'
                       }`}
                     >
                       {tag}
@@ -268,7 +268,7 @@ const Blog: React.FC = () => {
         {/* No Results */}
         {filteredPosts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-slate-600 dark:text-gray-400 text-lg">No blog posts found matching your criteria.</p>
+            <p className="text-slate-600 dark:text-slate-400 text-lg">No blog posts found matching your criteria.</p>
             <button
               onClick={clearFilters}
               className="mt-4 text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
