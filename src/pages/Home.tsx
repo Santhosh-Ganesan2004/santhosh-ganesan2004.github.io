@@ -18,7 +18,7 @@ const Home: React.FC = () => {
                 <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl">
                   <img
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-                    alt="Alex Johnson"
+                    alt="Santhosh Ganesan"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -30,17 +30,20 @@ const Home: React.FC = () => {
             <div className="text-center md:text-left">
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  Alex Johnson
+                  Santhosh Ganesan
                 </span>
               </h1>
               <h2 className="text-2xl md:text-3xl text-gray-300 mb-6">
-                AI + IoT Engineer
+                AI + IoT Engineer in Training
               </h2>
               <TypeWriter
-                text="Passionate about bridging the gap between artificial intelligence and the Internet of Things. With over 5 years of experience, I specialize in creating intelligent systems that transform how we interact with the physical world through cutting-edge AI algorithms and IoT architectures."
+                text="I am a passionate and driven AI + IoT engineer in training, blending cutting-edge artificial intelligence with the power of the Internet of Things to create innovative, impactful solutions. With a solid foundation in programming, machine learning, and embedded systems, I thrive at the intersection of software and hardware. My projects range from smart systems to AI-powered applications, demonstrating my ability to turn ideas into reality. I'm constantly learning, exploring new technologies, and aiming to bridge the gap between technology and real-world challenges."
                 speed={30}
-                className="text-lg text-gray-400 leading-relaxed max-w-2xl"
+                className="text-lg text-gray-400 leading-relaxed max-w-2xl mb-8"
               />
+              <blockquote className="text-xl italic text-blue-300 border-l-4 border-blue-500 pl-4">
+                "Fueling innovation at the crossroads of AI and IoT, I transform ideas into smart, scalable solutions for a connected future"
+              </blockquote>
             </div>
           </div>
         </div>
