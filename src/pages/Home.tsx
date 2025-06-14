@@ -1,17 +1,24 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, Briefcase } from 'lucide-react';
+import { ArrowRight, Award, Briefcase, Code, Brain, Cpu, Wifi } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
 import TypeWriter from '../components/TypeWriter';
 
 const Home: React.FC = () => {
+  const skills = [
+    { name: 'Artificial Intelligence', icon: Brain, color: 'from-purple-600 to-pink-600' },
+    { name: 'IoT Development', icon: Wifi, color: 'from-blue-600 to-cyan-600' },
+    { name: 'Machine Learning', icon: Cpu, color: 'from-green-600 to-teal-600' },
+    { name: 'Programming', icon: Code, color: 'from-orange-600 to-red-600' }
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Photo */}
             <div className="flex justify-center md:justify-start">
               <div className="relative">
@@ -49,8 +56,30 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Skills Section */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h3 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            Core Skills
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className="bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-blue-200/50 dark:border-blue-500/20 hover:border-blue-400/70 dark:hover:border-blue-500/50 transition-all duration-300 hover:scale-105 shadow-lg text-center"
+              >
+                <div className={`w-12 h-12 bg-gradient-to-r ${skill.color} rounded-lg flex items-center justify-center mx-auto mb-4`}>
+                  <skill.icon className="text-white" size={24} />
+                </div>
+                <h4 className="text-sm font-semibold text-slate-800 dark:text-white">{skill.name}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Navigation Boxes */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Projects Box */}
@@ -99,8 +128,8 @@ const Home: React.FC = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto">
           <ContactForm />
         </div>
       </section>

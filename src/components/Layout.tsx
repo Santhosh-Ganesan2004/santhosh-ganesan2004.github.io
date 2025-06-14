@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Linkedin, Twitter, Instagram, Github } from 'lucide-react';
+import { Menu, X, Linkedin, Twitter, Github } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import ScrollToTop from './ScrollToTop';
 
@@ -152,14 +152,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 className="text-slate-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 <Twitter size={20} />
-              </a>
-              <a
-                href="https://instagram.com/santhoshganesan"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-600 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 transition-colors"
-              >
-                <Instagram size={20} />
               </a>
               <a
                 href="https://github.com/santhoshganesan"
