@@ -1,13 +1,10 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Award, Briefcase } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
-import CertificationsModal from '../components/CertificationsModal';
 
 const Home: React.FC = () => {
-  const [isCertModalOpen, setIsCertModalOpen] = useState(false);
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -74,9 +71,9 @@ const Home: React.FC = () => {
             </Link>
 
             {/* Certifications Box */}
-            <button
-              onClick={() => setIsCertModalOpen(true)}
-              className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 hover:scale-105 text-left w-full"
+            <Link
+              to="/certifications"
+              className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 hover:scale-105"
             >
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center mr-4">
@@ -92,7 +89,7 @@ const Home: React.FC = () => {
                 <span className="font-semibold">View Certifications</span>
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </div>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -103,12 +100,6 @@ const Home: React.FC = () => {
           <ContactForm />
         </div>
       </section>
-
-      {/* Certifications Modal */}
-      <CertificationsModal
-        isOpen={isCertModalOpen}
-        onClose={() => setIsCertModalOpen(false)}
-      />
     </div>
   );
 };

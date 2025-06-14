@@ -53,9 +53,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               >
                 Projects
               </Link>
-              <button className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-slate-800 transition-colors">
+              <Link
+                to="/certifications"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  isActive('/certifications') 
+                    ? 'bg-blue-600 text-white' 
+                    : 'text-gray-300 hover:text-white hover:bg-slate-800'
+                }`}
+              >
                 Certifications
-              </button>
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -95,12 +102,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 >
                   Projects
                 </Link>
-                <button 
+                <Link
+                  to="/certifications"
                   onClick={() => setIsMenuOpen(false)}
-                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-slate-700 transition-colors"
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                    isActive('/certifications') 
+                      ? 'bg-blue-600 text-white' 
+                      : 'text-gray-300 hover:text-white hover:bg-slate-700'
+                  }`}
                 >
                   Certifications
-                </button>
+                </Link>
               </div>
             </div>
           )}
