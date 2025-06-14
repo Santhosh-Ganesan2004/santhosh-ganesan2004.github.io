@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,9 +18,6 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				'roboto': ['Roboto', 'sans-serif'],
-			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -65,26 +61,7 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				},
-				// Theme-aware colors
-				'nav-bg': 'hsl(var(--nav-bg))',
-				'nav-text': 'hsl(var(--nav-text))',
-				'nav-hover': 'hsl(var(--nav-hover))',
-				'body-bg': 'hsl(var(--body-bg))',
-				'body-text': 'hsl(var(--body-text))',
-				'card-bg': 'hsl(var(--card-bg))',
-				'card-text': 'hsl(var(--card-text))',
-				'card-hover': 'hsl(var(--card-hover))',
-				'button-bg': 'hsl(var(--button-bg))',
-				'button-text': 'hsl(var(--button-text))',
-				'button-active': 'hsl(var(--button-active))',
-				'footer-bg': 'hsl(var(--footer-bg))',
-				'footer-text': 'hsl(var(--footer-text))',
-				'footer-accent': 'hsl(var(--footer-accent))',
-				'link-color': 'hsl(var(--link-color))',
-				'dialog-bg': 'hsl(var(--dialog-bg))',
-				'dialog-text': 'hsl(var(--dialog-text))',
-				'dialog-border': 'hsl(var(--dialog-border))',
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -107,21 +84,11 @@ export default {
 					to: {
 						height: '0'
 					}
-				},
-				'typing': {
-					'from': { width: '0' },
-					'to': { width: '100%' }
-				},
-				'blink-caret': {
-					'from, to': { borderColor: 'transparent' },
-					'50%': { borderColor: 'currentColor' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'typing': 'typing 3.5s steps(40, end)',
-				'blink-caret': 'blink-caret 1s infinite'
+				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
 		}
 	},
