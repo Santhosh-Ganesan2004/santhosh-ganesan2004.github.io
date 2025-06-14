@@ -9,13 +9,13 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg bg-electric-blue/10 hover:bg-electric-blue/20 transition-colors"
+      className="p-2 rounded-lg bg-teal/10 hover:bg-teal/20 transition-colors"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
     >
       {theme === 'light' ? (
-        <Moon className="w-5 h-5 text-electric-blue" />
+        <Moon className="w-5 h-5 text-teal" />
       ) : (
-        <Sun className="w-5 h-5 text-electric-blue" />
+        <Sun className="w-5 h-5 text-teal" />
       )}
     </button>
   );

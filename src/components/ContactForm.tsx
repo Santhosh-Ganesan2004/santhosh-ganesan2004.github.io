@@ -31,13 +31,13 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-midnight-blue rounded-2xl p-8 border border-electric-blue/20 shadow-lg">
-      <h3 className="text-2xl font-bold mb-6 text-electric-blue">
+    <div className="bg-white dark:bg-deep-purple rounded-2xl p-8 border border-amber/20 shadow-lg">
+      <h3 className="text-2xl font-bold mb-6 text-teal">
         Get In Touch
       </h3>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-charcoal dark:text-silver-gray mb-2">
+          <label htmlFor="name" className="block text-sm font-medium text-dark-gray dark:text-light-gray mb-2">
             Name
           </label>
           <input
@@ -47,12 +47,12 @@ const ContactForm: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-white dark:bg-charcoal border border-electric-blue/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-electric-blue focus:border-transparent text-charcoal dark:text-silver-gray placeholder-charcoal/60 dark:placeholder-silver-gray/60 transition-all"
+            className="w-full px-4 py-3 bg-white dark:bg-dark-gray border border-teal/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-dark-gray dark:text-light-gray placeholder-dark-gray/60 dark:placeholder-light-gray/60 transition-all"
             placeholder="Your Name"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-charcoal dark:text-silver-gray mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-dark-gray dark:text-light-gray mb-2">
             Email
           </label>
           <input
@@ -62,12 +62,12 @@ const ContactForm: React.FC = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-white dark:bg-charcoal border border-electric-blue/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-electric-blue focus:border-transparent text-charcoal dark:text-silver-gray placeholder-charcoal/60 dark:placeholder-silver-gray/60 transition-all"
+            className="w-full px-4 py-3 bg-white dark:bg-dark-gray border border-teal/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-dark-gray dark:text-light-gray placeholder-dark-gray/60 dark:placeholder-light-gray/60 transition-all"
             placeholder="your.email@example.com"
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-charcoal dark:text-silver-gray mb-2">
+          <label htmlFor="message" className="block text-sm font-medium text-dark-gray dark:text-light-gray mb-2">
             Message
           </label>
           <textarea
@@ -77,13 +77,13 @@ const ContactForm: React.FC = () => {
             onChange={handleChange}
             required
             rows={4}
-            className="w-full px-4 py-3 bg-white dark:bg-charcoal border border-electric-blue/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-electric-blue focus:border-transparent text-charcoal dark:text-silver-gray placeholder-charcoal/60 dark:placeholder-silver-gray/60 resize-none transition-all"
+            className="w-full px-4 py-3 bg-white dark:bg-dark-gray border border-teal/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-dark-gray dark:text-light-gray placeholder-dark-gray/60 dark:placeholder-light-gray/60 resize-none transition-all"
             placeholder="Your message..."
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-electric-blue hover:bg-neon-green active:bg-neon-green text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 hover:scale-105"
+          className="w-full bg-teal hover:bg-amber active:bg-amber text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 hover:scale-105"
         >
           <Send size={18} />
           <span>Send Message</span>

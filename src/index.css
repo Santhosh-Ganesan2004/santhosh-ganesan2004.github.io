@@ -47,12 +47,13 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Custom color palette */
-    --midnight-blue: 210 100% 12%;
-    --electric-blue: 210 100% 56%;
-    --neon-green: 120 100% 50%;
-    --silver-gray: 0 0% 75%;
-    --charcoal: 0 0% 20%;
+    /* New custom color palette */
+    --deep-purple: 271 81% 56%;
+    --teal: 178 60% 48%;
+    --amber: 45 93% 47%;
+    --sky-blue: 195 100% 50%;
+    --light-gray: 0 0% 95%;
+    --dark-gray: 0 0% 25%;
   }
 
   .dark {
@@ -91,6 +92,10 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dark mode adjustments for custom colors */
+    --light-gray: 0 0% 20%;
+    --dark-gray: 0 0% 85%;
   }
 }
 
@@ -102,17 +107,17 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Roboto', sans-serif;
-    background-color: hsl(var(--silver-gray));
-    color: hsl(var(--charcoal));
+    background-color: hsl(var(--light-gray));
+    color: hsl(var(--dark-gray));
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
-    color: hsl(var(--electric-blue));
+    color: hsl(var(--teal));
   }
 
   a {
-    color: hsl(var(--neon-green));
+    color: hsl(var(--sky-blue));
     text-decoration: none;
   }
 

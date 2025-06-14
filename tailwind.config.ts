@@ -66,12 +66,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors
-				'midnight-blue': 'hsl(var(--midnight-blue))',
-				'electric-blue': 'hsl(var(--electric-blue))',
-				'neon-green': 'hsl(var(--neon-green))',
-				'silver-gray': 'hsl(var(--silver-gray))',
-				'charcoal': 'hsl(var(--charcoal))',
+				// Updated custom colors
+				'deep-purple': 'hsl(var(--deep-purple))',
+				'teal': 'hsl(var(--teal))',
+				'amber': 'hsl(var(--amber))',
+				'sky-blue': 'hsl(var(--sky-blue))',
+				'light-gray': 'hsl(var(--light-gray))',
+				'dark-gray': 'hsl(var(--dark-gray))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
