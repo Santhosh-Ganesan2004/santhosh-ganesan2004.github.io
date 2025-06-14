@@ -30,10 +30,10 @@ const Home: React.FC = () => {
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-electric-blue">
                 Alex Johnson
               </h1>
-              <h2 className="text-2xl md:text-3xl text-charcoal mb-6 font-medium">
+              <h2 className="text-2xl md:text-3xl text-charcoal dark:text-silver-gray mb-6 font-medium">
                 AI + IoT Engineer
               </h2>
-              <p className="text-lg text-charcoal leading-relaxed max-w-2xl">
+              <p className="text-lg text-charcoal dark:text-silver-gray leading-relaxed max-w-2xl">
                 Passionate about bridging the gap between artificial intelligence and the Internet of Things. 
                 With over 5 years of experience, I specialize in creating intelligent systems that transform 
                 how we interact with the physical world through cutting-edge AI algorithms and IoT architectures.
@@ -50,7 +50,7 @@ const Home: React.FC = () => {
             {/* Projects Box */}
             <Link
               to="/projects"
-              className="group bg-white rounded-2xl p-8 border border-electric-blue/20 hover:border-electric-blue/50 transition-all duration-300 hover:scale-105 shadow-lg"
+              className="group bg-white dark:bg-midnight-blue rounded-2xl p-8 border border-electric-blue/20 hover:border-electric-blue/50 transition-all duration-300 hover:scale-105 shadow-lg"
             >
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-electric-blue rounded-lg flex items-center justify-center mr-4">
@@ -58,7 +58,7 @@ const Home: React.FC = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-electric-blue">My Projects</h3>
               </div>
-              <p className="text-charcoal mb-6">
+              <p className="text-charcoal dark:text-silver-gray mb-6">
                 Explore my portfolio of AI and IoT projects, from smart home automation 
                 to predictive maintenance systems.
               </p>
@@ -71,7 +71,7 @@ const Home: React.FC = () => {
             {/* Certifications Box */}
             <Link
               to="/certifications"
-              className="group bg-white rounded-2xl p-8 border border-electric-blue/20 hover:border-electric-blue/50 transition-all duration-300 hover:scale-105 shadow-lg"
+              className="group bg-white dark:bg-midnight-blue rounded-2xl p-8 border border-electric-blue/20 hover:border-electric-blue/50 transition-all duration-300 hover:scale-105 shadow-lg"
             >
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-electric-blue rounded-lg flex items-center justify-center mr-4">
@@ -79,7 +79,7 @@ const Home: React.FC = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-electric-blue">Certifications</h3>
               </div>
-              <p className="text-charcoal mb-6">
+              <p className="text-charcoal dark:text-silver-gray mb-6">
                 View my professional certifications in AI, cloud computing, and IoT technologies 
                 from leading industry providers.
               </p>

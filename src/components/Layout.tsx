@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Linkedin, Twitter, Instagram, Github } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -16,7 +17,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen bg-silver-gray text-charcoal font-roboto">
+    <div className="min-h-screen bg-silver-gray dark:bg-charcoal text-charcoal dark:text-silver-gray font-roboto transition-colors">
       {/* Navigation */}
       <nav className="bg-midnight-blue border-b border-electric-blue/20 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,10 +64,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               >
                 Certifications
               </Link>
+              <ThemeToggle />
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
+            {/* Mobile menu button and theme toggle */}
+            <div className="md:hidden flex items-center space-x-2">
+              <ThemeToggle />
               <button
                 onClick={toggleMenu}
                 className="text-white hover:text-electric-blue focus:outline-none focus:text-electric-blue transition-colors"
