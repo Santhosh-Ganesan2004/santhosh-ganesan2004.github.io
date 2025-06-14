@@ -19,7 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-body-bg text-body-text font-roboto transition-colors">
       {/* Navigation */}
-      <nav className="bg-nav-bg border-b border-nav-text/20 sticky top-0 z-50">
+      <nav className="bg-nav-bg border-b border-nav-hover/20 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
@@ -39,7 +39,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive('/') 
                     ? 'bg-button-bg text-button-text' 
-                    : 'text-nav-text hover:text-nav-hover hover:bg-nav-hover/10'
+                    : 'text-nav-text hover:text-nav-text hover:bg-nav-hover/20'
                 }`}
               >
                 About Me
@@ -49,7 +49,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive('/projects') 
                     ? 'bg-button-bg text-button-text' 
-                    : 'text-nav-text hover:text-nav-hover hover:bg-nav-hover/10'
+                    : 'text-nav-text hover:text-nav-text hover:bg-nav-hover/20'
                 }`}
               >
                 Projects
@@ -59,7 +59,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive('/certifications') 
                     ? 'bg-button-bg text-button-text' 
-                    : 'text-nav-text hover:text-nav-hover hover:bg-nav-hover/10'
+                    : 'text-nav-text hover:text-nav-text hover:bg-nav-hover/20'
                 }`}
               >
                 Certifications
@@ -72,7 +72,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <ThemeToggle />
               <button
                 onClick={toggleMenu}
-                className="text-nav-text hover:text-nav-hover focus:outline-none focus:text-nav-hover transition-colors"
+                className="text-nav-text hover:text-nav-text focus:outline-none focus:text-nav-text transition-colors"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -89,7 +89,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     isActive('/') 
                       ? 'bg-button-bg text-button-text' 
-                      : 'text-nav-text hover:text-nav-hover hover:bg-nav-hover/10'
+                      : 'text-nav-text hover:text-nav-text hover:bg-nav-hover/20'
                   }`}
                 >
                   About Me
@@ -100,7 +100,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     isActive('/projects') 
                       ? 'bg-button-bg text-button-text' 
-                      : 'text-nav-text hover:text-nav-hover hover:bg-nav-hover/10'
+                      : 'text-nav-text hover:text-nav-text hover:bg-nav-hover/20'
                   }`}
                 >
                   Projects
@@ -111,7 +111,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     isActive('/certifications') 
                       ? 'bg-button-bg text-button-text' 
-                      : 'text-nav-text hover:text-nav-hover hover:bg-nav-hover/10'
+                      : 'text-nav-text hover:text-nav-text hover:bg-nav-hover/20'
                   }`}
                 >
                   Certifications
@@ -128,7 +128,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-footer-bg border-t border-footer-text/20 mt-16">
+      <footer className="bg-footer-bg border-t border-footer-accent/20 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">

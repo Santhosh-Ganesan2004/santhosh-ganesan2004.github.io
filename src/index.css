@@ -8,13 +8,13 @@
 
 @layer base {
   :root {
-    --background: 245 245 245; /* Light Gray #F5F5F5 */
+    --background: 0 0% 100%; /* White */
     --foreground: 0 0% 0%; /* Black */
 
-    --card: 0 0% 100%; /* White */
+    --card: 0 0% 96.9%; /* Light Gray #F7F7F7 */
     --card-foreground: 0 0% 0%; /* Black */
 
-    --popover: 0 0% 100%; /* White */
+    --popover: 0 0% 96.9%; /* Light Gray #F7F7F7 */
     --popover-foreground: 0 0% 0%; /* Black */
 
     --primary: 225 73% 57%; /* Royal Blue */
@@ -50,79 +50,79 @@
     /* Light theme colors */
     --nav-bg: 0 0% 100%; /* White */
     --nav-text: 225 73% 57%; /* Royal Blue */
-    --nav-hover: 120 100% 50%; /* Neon Green */
-    --body-bg: 245 245 245; /* Light Gray */
+    --nav-hover: 0 0% 90%; /* Light Gray */
+    --body-bg: 0 0% 100%; /* White */
     --body-text: 0 0% 0%; /* Black */
-    --card-bg: 0 0% 100%; /* White */
+    --card-bg: 0 0% 96.9%; /* Light Gray #F7F7F7 */
     --card-text: 0 0% 0%; /* Black */
-    --card-hover: 120 100% 50%; /* Neon Green */
+    --card-hover: 225 73% 57%; /* Royal Blue */
     --button-bg: 225 73% 57%; /* Royal Blue */
     --button-text: 0 0% 100%; /* White */
-    --button-active: 120 100% 50%; /* Neon Green */
-    --footer-bg: 245 245 245; /* Light Gray */
-    --footer-text: 225 73% 57%; /* Royal Blue */
-    --footer-accent: 120 100% 50%; /* Neon Green */
+    --button-active: 0 0% 90%; /* Light Gray */
+    --footer-bg: 0 0% 100%; /* White */
+    --footer-text: 0 0% 0%; /* Black */
+    --footer-accent: 0 0% 90%; /* Light Gray */
     --link-color: 225 73% 57%; /* Royal Blue */
-    --dialog-bg: 0 0% 100%; /* White */
+    --dialog-bg: 0 0% 96.9%; /* Light Gray #F7F7F7 */
     --dialog-text: 0 0% 0%; /* Black */
     --dialog-border: 225 73% 57%; /* Royal Blue */
   }
 
   .dark {
-    --background: 18 18 18; /* Charcoal Black #121212 */
+    --background: 0 0% 0%; /* Black */
     --foreground: 0 0% 100%; /* White */
 
-    --card: 31 31 31; /* Dark Gray #1F1F1F */
+    --card: 233 24% 15%; /* Dark Blue #1E1E30 */
     --card-foreground: 0 0% 100%; /* White */
 
-    --popover: 31 31 31;
-    --popover-foreground: 0 0% 100%;
+    --popover: 233 24% 15%; /* Dark Blue #1E1E30 */
+    --popover-foreground: 0 0% 100%; /* White */
 
     --primary: 225 73% 57%; /* Royal Blue */
     --primary-foreground: 0 0% 100%; /* White */
 
-    --secondary: 31 31 31;
+    --secondary: 233 24% 15%; /* Dark Blue */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 31 31 31;
+    --muted: 233 24% 15%; /* Dark Blue */
     --muted-foreground: 0 0% 65%;
 
-    --accent: 31 31 31;
+    --accent: 233 24% 15%; /* Dark Blue */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 225 73% 57%; /* Royal Blue */
-    --input: 31 31 31;
+    --input: 233 24% 15%; /* Dark Blue */
     --ring: 225 73% 57%;
     
     --sidebar-background: 0 0% 0%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 225 73% 57%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 31 31 31;
+    --sidebar-accent: 233 24% 15%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 225 73% 57%;
     --sidebar-ring: 225 73% 57%;
 
     /* Dark theme colors */
-    --nav-bg: 0 0% 0%; /* Jet Black */
+    --nav-bg: 0 0% 0%; /* Black */
     --nav-text: 0 0% 100%; /* White */
-    --nav-hover: 120 100% 50%; /* Neon Green */
-    --body-bg: 18 18 18; /* Charcoal Black */
+    --nav-hover: 225 73% 57%; /* Royal Blue */
+    --body-bg: 0 0% 0%; /* Black */
     --body-text: 0 0% 100%; /* White */
-    --card-bg: 31 31 31; /* Dark Gray */
+    --card-bg: 233 24% 15%; /* Dark Blue #1E1E30 */
     --card-text: 0 0% 100%; /* White */
-    --card-hover: 120 100% 50%; /* Neon Green */
+    --card-hover: 225 73% 57%; /* Royal Blue */
     --button-bg: 225 73% 57%; /* Royal Blue */
     --button-text: 0 0% 100%; /* White */
-    --button-active: 120 100% 50%; /* Neon Green */
-    --footer-bg: 0 0% 0%; /* Jet Black */
+    --button-active: 233 24% 15%; /* Dark Blue */
+    --footer-bg: 0 0% 0%; /* Black */
     --footer-text: 0 0% 100%; /* White */
-    --footer-accent: 120 100% 50%; /* Neon Green */
-    --link-color: 120 100% 50%; /* Neon Green */
-    --dialog-bg: 31 31 31; /* Dark Gray */
+    --footer-accent: 233 24% 15%; /* Dark Blue */
+    --link-color: 225 73% 57%; /* Royal Blue */
+    --dialog-bg: 233 24% 15%; /* Dark Blue #1E1E30 */
     --dialog-text: 0 0% 100%; /* White */
     --dialog-border: 225 73% 57%; /* Royal Blue */
   }
