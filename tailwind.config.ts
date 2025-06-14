@@ -66,13 +66,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Updated custom colors
-				'deep-purple': 'hsl(var(--deep-purple))',
-				'teal': 'hsl(var(--teal))',
-				'amber': 'hsl(var(--amber))',
-				'sky-blue': 'hsl(var(--sky-blue))',
-				'light-gray': 'hsl(var(--light-gray))',
-				'dark-gray': 'hsl(var(--dark-gray))',
+				// Updated custom colors for Steel Blue/Burnt Orange theme
+				'steel-blue': 'hsl(var(--steel-blue))',
+				'burnt-orange': 'hsl(var(--burnt-orange))',
+				'military-green': 'hsl(var(--military-green))',
+				'crimson-red': 'hsl(var(--crimson-red))',
+				'light-ash-gray': 'hsl(var(--light-ash-gray))',
+				'jet-black': 'hsl(var(--jet-black))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -95,11 +95,21 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'typing': {
+					'from': { width: '0' },
+					'to': { width: '100%' }
+				},
+				'blink-caret': {
+					'from, to': { borderColor: 'transparent' },
+					'50%': { borderColor: 'currentColor' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'typing': 'typing 3.5s steps(40, end)',
+				'blink-caret': 'blink-caret 1s infinite'
 			}
 		}
 	},

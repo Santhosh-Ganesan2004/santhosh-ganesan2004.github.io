@@ -47,13 +47,13 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* New custom color palette */
-    --deep-purple: 271 81% 56%;
-    --teal: 178 60% 48%;
-    --amber: 45 93% 47%;
-    --sky-blue: 195 100% 50%;
-    --light-gray: 0 0% 95%;
-    --dark-gray: 0 0% 25%;
+    /* Steel Blue/Burnt Orange color palette */
+    --steel-blue: 210 44% 36%;
+    --burnt-orange: 22 89% 52%;
+    --military-green: 120 25% 35%;
+    --crimson-red: 348 83% 47%;
+    --light-ash-gray: 0 0% 90%;
+    --jet-black: 0 0% 10%;
   }
 
   .dark {
@@ -94,8 +94,8 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
 
     /* Dark mode adjustments for custom colors */
-    --light-gray: 0 0% 20%;
-    --dark-gray: 0 0% 85%;
+    --light-ash-gray: 0 0% 20%;
+    --jet-black: 0 0% 85%;
   }
 }
 
@@ -107,21 +107,32 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Roboto', sans-serif;
-    background-color: hsl(var(--light-gray));
-    color: hsl(var(--dark-gray));
+    background-color: hsl(var(--light-ash-gray));
+    color: hsl(var(--jet-black));
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
-    color: hsl(var(--teal));
+    color: hsl(var(--steel-blue));
   }
 
   a {
-    color: hsl(var(--sky-blue));
+    color: hsl(var(--military-green));
     text-decoration: none;
   }
 
   a:hover {
     text-decoration: underline;
+  }
+}
+
+@layer utilities {
+  .typing-animation {
+    overflow: hidden;
+    border-right: 3px solid;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end), blink-caret 1s infinite;
+    max-width: fit-content;
   }
 }
