@@ -33,15 +33,15 @@ const Home: React.FC = () => {
                   Santhosh Ganesan
                 </span>
               </h1>
-              <h2 className="text-2xl md:text-3xl text-gray-300 mb-6">
+              <h2 className="text-2xl md:text-3xl text-slate-600 dark:text-gray-300 mb-6">
                 AI + IoT Engineer in Training
               </h2>
               <TypeWriter
                 text="I am a passionate and driven AI + IoT engineer in training, blending cutting-edge artificial intelligence with the power of the Internet of Things to create innovative, impactful solutions. With a solid foundation in programming, machine learning, and embedded systems, I thrive at the intersection of software and hardware. My projects range from smart systems to AI-powered applications, demonstrating my ability to turn ideas into reality. I'm constantly learning, exploring new technologies, and aiming to bridge the gap between technology and real-world challenges."
                 speed={30}
-                className="text-lg text-gray-400 leading-relaxed max-w-2xl mb-8"
+                className="text-lg text-slate-600 dark:text-gray-400 leading-relaxed max-w-2xl mb-8"
               />
-              <blockquote className="text-xl italic text-blue-300 border-l-4 border-blue-500 pl-4">
+              <blockquote className="text-xl italic text-blue-600 dark:text-blue-300 border-l-4 border-blue-500 pl-4">
                 "Fueling innovation at the crossroads of AI and IoT, I transform ideas into smart, scalable solutions for a connected future"
               </blockquote>
             </div>
@@ -56,19 +56,19 @@ const Home: React.FC = () => {
             {/* Projects Box */}
             <Link
               to="/projects"
-              className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 hover:scale-105"
+              className="group bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-200/50 dark:border-blue-500/20 hover:border-blue-400/70 dark:hover:border-blue-500/50 transition-all duration-300 hover:scale-105 shadow-lg"
             >
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center mr-4">
                   <Briefcase className="text-white" size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-white">My Projects</h3>
+                <h3 className="text-2xl font-bold text-slate-800 dark:text-white">My Projects</h3>
               </div>
-              <p className="text-gray-400 mb-6">
+              <p className="text-slate-600 dark:text-gray-400 mb-6">
                 Explore my portfolio of AI and IoT projects, from smart home automation 
                 to predictive maintenance systems.
               </p>
-              <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors">
+              <div className="flex items-center text-blue-600 dark:text-blue-400 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors">
                 <span className="font-semibold">View Projects</span>
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </div>
@@ -77,19 +77,19 @@ const Home: React.FC = () => {
             {/* Certifications Box */}
             <Link
               to="/certifications"
-              className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 hover:scale-105"
+              className="group bg-white/70 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-200/50 dark:border-blue-500/20 hover:border-blue-400/70 dark:hover:border-blue-500/50 transition-all duration-300 hover:scale-105 shadow-lg"
             >
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center mr-4">
                   <Award className="text-white" size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Certifications</h3>
+                <h3 className="text-2xl font-bold text-slate-800 dark:text-white">Certifications</h3>
               </div>
-              <p className="text-gray-400 mb-6">
+              <p className="text-slate-600 dark:text-gray-400 mb-6">
                 View my professional certifications in AI, cloud computing, and IoT technologies 
                 from leading industry providers.
               </p>
-              <div className="flex items-center text-purple-400 group-hover:text-purple-300 transition-colors">
+              <div className="flex items-center text-purple-600 dark:text-purple-400 group-hover:text-purple-500 dark:group-hover:text-purple-300 transition-colors">
                 <span className="font-semibold">View Certifications</span>
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </div>
