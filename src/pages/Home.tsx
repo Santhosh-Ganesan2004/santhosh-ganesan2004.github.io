@@ -14,14 +14,14 @@ const Home: React.FC = () => {
             {/* Photo */}
             <div className="flex justify-center md:justify-start">
               <div className="relative">
-                <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-button-bg/30 shadow-2xl">
+                <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-button-bg/20 shadow-2xl">
                   <img
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
                     alt="Alex Johnson"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute -inset-4 bg-button-bg/20 rounded-full blur-2xl -z-10"></div>
+                <div className="absolute -inset-4 bg-button-bg/10 rounded-full blur-2xl -z-10"></div>
               </div>
             </div>
 
@@ -30,10 +30,10 @@ const Home: React.FC = () => {
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-body-text">
                 Alex Johnson
               </h1>
-              <h2 className="text-2xl md:text-3xl text-body-text mb-6 font-medium">
+              <h2 className="text-2xl md:text-3xl text-body-text/80 mb-6 font-medium">
                 AI + IoT Engineer
               </h2>
-              <div className="text-lg text-body-text leading-relaxed max-w-2xl">
+              <div className="text-lg text-body-text/70 leading-relaxed max-w-2xl">
                 Passionate about bridging the gap between artificial intelligence and the Internet of Things. With over 5 years of experience, I specialize in creating intelligent systems that transform how we interact with the physical world through cutting-edge AI algorithms and IoT architectures.
               </div>
             </div>
@@ -48,15 +48,15 @@ const Home: React.FC = () => {
             {/* Projects Box */}
             <Link
               to="/projects"
-              className="group bg-card-bg hover:border-card-hover/50 rounded-2xl p-8 border border-button-bg/20 transition-all duration-300 hover:scale-105 shadow-lg"
+              className="group bg-card-bg hover:border-card-hover/30 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-lg"
             >
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-button-bg rounded-lg flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-button-bg rounded-lg flex items-center justify-center mr-4 shadow-sm">
                   <Briefcase className="text-button-text" size={24} />
                 </div>
                 <h3 className="text-2xl font-bold text-card-text">My Projects</h3>
               </div>
-              <p className="text-card-text mb-6">
+              <p className="text-card-text/70 mb-6">
                 Explore my portfolio of AI and IoT projects, from smart home automation 
                 to predictive maintenance systems.
               </p>
@@ -69,15 +69,15 @@ const Home: React.FC = () => {
             {/* Certifications Box */}
             <Link
               to="/certifications"
-              className="group bg-card-bg hover:border-card-hover/50 rounded-2xl p-8 border border-button-bg/20 transition-all duration-300 hover:scale-105 shadow-lg"
+              className="group bg-card-bg hover:border-card-hover/30 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-lg"
             >
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-button-bg rounded-lg flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-button-bg rounded-lg flex items-center justify-center mr-4 shadow-sm">
                   <Award className="text-button-text" size={24} />
                 </div>
                 <h3 className="text-2xl font-bold text-card-text">Certifications</h3>
               </div>
-              <p className="text-card-text mb-6">
+              <p className="text-card-text/70 mb-6">
                 View my professional certifications in AI, cloud computing, and IoT technologies 
                 from leading industry providers.
               </p>

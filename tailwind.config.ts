@@ -85,10 +85,6 @@ export default {
 				'dialog-bg': 'hsl(var(--dialog-bg))',
 				'dialog-text': 'hsl(var(--dialog-text))',
 				'dialog-border': 'hsl(var(--dialog-border))',
-				// Custom colors
-				'royal-blue': '#4169E1',
-				'dark-blue': '#1E1E30',
-				'light-gray': '#F7F7F7',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -31,7 +31,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-dialog-bg rounded-2xl p-8 border border-dialog-border/30 shadow-lg">
+    <div className="bg-dialog-bg rounded-2xl p-8 border border-dialog-border shadow-lg">
       <h3 className="text-2xl font-bold mb-6 text-dialog-text">
         Get In Touch
       </h3>
@@ -47,7 +47,7 @@ const ContactForm: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-dialog-bg border border-dialog-border/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-button-bg focus:border-transparent text-dialog-text placeholder-dialog-text/60 transition-all"
+            className="w-full px-4 py-3 bg-dialog-bg border border-dialog-border rounded-lg focus:outline-none focus:ring-2 focus:ring-button-bg focus:border-transparent text-dialog-text placeholder-dialog-text/60 transition-all"
             placeholder="Your Name"
           />
         </div>
@@ -62,7 +62,7 @@ const ContactForm: React.FC = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-dialog-bg border border-dialog-border/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-button-bg focus:border-transparent text-dialog-text placeholder-dialog-text/60 transition-all"
+            className="w-full px-4 py-3 bg-dialog-bg border border-dialog-border rounded-lg focus:outline-none focus:ring-2 focus:ring-button-bg focus:border-transparent text-dialog-text placeholder-dialog-text/60 transition-all"
             placeholder="your.email@example.com"
           />
         </div>
@@ -77,13 +77,13 @@ const ContactForm: React.FC = () => {
             onChange={handleChange}
             required
             rows={4}
-            className="w-full px-4 py-3 bg-dialog-bg border border-dialog-border/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-button-bg focus:border-transparent text-dialog-text placeholder-dialog-text/60 resize-none transition-all"
+            className="w-full px-4 py-3 bg-dialog-bg border border-dialog-border rounded-lg focus:outline-none focus:ring-2 focus:ring-button-bg focus:border-transparent text-dialog-text placeholder-dialog-text/60 resize-none transition-all"
             placeholder="Your message..."
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-button-bg hover:bg-button-active active:bg-button-active text-button-text font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 hover:scale-105"
+          className="w-full bg-button-bg hover:bg-button-active active:bg-button-active text-button-text font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2 hover:scale-105 shadow-sm"
         >
           <Send size={18} />
           <span>Send Message</span>

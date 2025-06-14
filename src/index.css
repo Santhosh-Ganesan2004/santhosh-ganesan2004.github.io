@@ -11,120 +11,120 @@
     --background: 0 0% 100%; /* White */
     --foreground: 0 0% 0%; /* Black */
 
-    --card: 0 0% 96.9%; /* Light Gray #F7F7F7 */
-    --card-foreground: 0 0% 0%; /* Black */
+    --card: 0 0% 98%; /* Off-white */
+    --card-foreground: 0 0% 9%; /* Dark gray */
 
-    --popover: 0 0% 96.9%; /* Light Gray #F7F7F7 */
-    --popover-foreground: 0 0% 0%; /* Black */
+    --popover: 0 0% 98%; /* Off-white */
+    --popover-foreground: 0 0% 9%; /* Dark gray */
 
-    --primary: 225 73% 57%; /* Royal Blue */
+    --primary: 221 83% 53%; /* Vibrant blue */
     --primary-foreground: 0 0% 100%; /* White */
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 0 0% 96.1%;
+    --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 225 73% 57%; /* Royal Blue for borders */
-    --input: 0 0% 90%;
-    --ring: 225 73% 57%;
+    --border: 0 0% 90%; /* Light border */
+    --input: 0 0% 95%;
+    --ring: 221 83% 53%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 0 0% 0%;
-    --sidebar-primary: 225 73% 57%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 221 83% 53%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 0%;
-    --sidebar-border: 225 73% 57%;
-    --sidebar-ring: 225 73% 57%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 221 83% 53%;
 
-    /* Light theme colors */
-    --nav-bg: 0 0% 100%; /* White */
-    --nav-text: 225 73% 57%; /* Royal Blue */
-    --nav-hover: 0 0% 90%; /* Light Gray */
-    --body-bg: 0 0% 100%; /* White */
-    --body-text: 0 0% 0%; /* Black */
-    --card-bg: 0 0% 96.9%; /* Light Gray #F7F7F7 */
-    --card-text: 0 0% 0%; /* Black */
-    --card-hover: 225 73% 57%; /* Royal Blue */
-    --button-bg: 225 73% 57%; /* Royal Blue */
+    /* Light theme colors - Clean and professional */
+    --nav-bg: 0 0% 100%; /* Pure white */
+    --nav-text: 221 83% 53%; /* Vibrant blue */
+    --nav-hover: 221 83% 96%; /* Very light blue */
+    --body-bg: 0 0% 98%; /* Off-white for subtle contrast */
+    --body-text: 0 0% 9%; /* Dark gray for readability */
+    --card-bg: 0 0% 100%; /* Pure white cards */
+    --card-text: 0 0% 9%; /* Dark gray text */
+    --card-hover: 221 83% 53%; /* Vibrant blue */
+    --button-bg: 221 83% 53%; /* Vibrant blue */
     --button-text: 0 0% 100%; /* White */
-    --button-active: 0 0% 90%; /* Light Gray */
-    --footer-bg: 0 0% 100%; /* White */
-    --footer-text: 0 0% 0%; /* Black */
-    --footer-accent: 0 0% 90%; /* Light Gray */
-    --link-color: 225 73% 57%; /* Royal Blue */
-    --dialog-bg: 0 0% 96.9%; /* Light Gray #F7F7F7 */
-    --dialog-text: 0 0% 0%; /* Black */
-    --dialog-border: 225 73% 57%; /* Royal Blue */
+    --button-active: 221 83% 45%; /* Darker blue */
+    --footer-bg: 0 0% 97%; /* Light gray */
+    --footer-text: 0 0% 20%; /* Medium gray */
+    --footer-accent: 221 83% 53%; /* Vibrant blue */
+    --link-color: 221 83% 53%; /* Vibrant blue */
+    --dialog-bg: 0 0% 100%; /* Pure white */
+    --dialog-text: 0 0% 9%; /* Dark gray */
+    --dialog-border: 0 0% 90%; /* Light border */
   }
 
   .dark {
-    --background: 0 0% 0%; /* Black */
-    --foreground: 0 0% 100%; /* White */
+    --background: 0 0% 7%; /* Very dark gray */
+    --foreground: 0 0% 98%; /* Off-white */
 
-    --card: 233 24% 15%; /* Dark Blue #1E1E30 */
-    --card-foreground: 0 0% 100%; /* White */
+    --card: 0 0% 10%; /* Dark card background */
+    --card-foreground: 0 0% 98%; /* Off-white */
 
-    --popover: 233 24% 15%; /* Dark Blue #1E1E30 */
-    --popover-foreground: 0 0% 100%; /* White */
+    --popover: 0 0% 10%; /* Dark background */
+    --popover-foreground: 0 0% 98%; /* Off-white */
 
-    --primary: 225 73% 57%; /* Royal Blue */
-    --primary-foreground: 0 0% 100%; /* White */
+    --primary: 221 83% 53%; /* Vibrant blue */
+    --primary-foreground: 0 0% 98%; /* Off-white */
 
-    --secondary: 233 24% 15%; /* Dark Blue */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%; /* Dark */
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 233 24% 15%; /* Dark Blue */
+    --muted: 0 0% 10%; /* Dark */
     --muted-foreground: 0 0% 65%;
 
-    --accent: 233 24% 15%; /* Dark Blue */
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 10%; /* Dark */
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 225 73% 57%; /* Royal Blue */
-    --input: 233 24% 15%; /* Dark Blue */
-    --ring: 225 73% 57%;
+    --border: 0 0% 20%; /* Dark border */
+    --input: 0 0% 10%; /* Dark input */
+    --ring: 221 83% 53%;
     
-    --sidebar-background: 0 0% 0%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 225 73% 57%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 233 24% 15%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 225 73% 57%;
-    --sidebar-ring: 225 73% 57%;
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 221 83% 53%;
 
-    /* Dark theme colors */
-    --nav-bg: 0 0% 0%; /* Black */
-    --nav-text: 0 0% 100%; /* White */
-    --nav-hover: 225 73% 57%; /* Royal Blue */
-    --body-bg: 0 0% 0%; /* Black */
-    --body-text: 0 0% 100%; /* White */
-    --card-bg: 233 24% 15%; /* Dark Blue #1E1E30 */
-    --card-text: 0 0% 100%; /* White */
-    --card-hover: 225 73% 57%; /* Royal Blue */
-    --button-bg: 225 73% 57%; /* Royal Blue */
-    --button-text: 0 0% 100%; /* White */
-    --button-active: 233 24% 15%; /* Dark Blue */
-    --footer-bg: 0 0% 0%; /* Black */
-    --footer-text: 0 0% 100%; /* White */
-    --footer-accent: 233 24% 15%; /* Dark Blue */
-    --link-color: 225 73% 57%; /* Royal Blue */
-    --dialog-bg: 233 24% 15%; /* Dark Blue #1E1E30 */
-    --dialog-text: 0 0% 100%; /* White */
-    --dialog-border: 225 73% 57%; /* Royal Blue */
+    /* Dark theme colors - Modern and elegant */
+    --nav-bg: 0 0% 4%; /* Almost black */
+    --nav-text: 0 0% 98%; /* Off-white */
+    --nav-hover: 221 83% 15%; /* Dark blue */
+    --body-bg: 0 0% 7%; /* Very dark gray */
+    --body-text: 0 0% 98%; /* Off-white */
+    --card-bg: 0 0% 10%; /* Dark card background */
+    --card-text: 0 0% 98%; /* Off-white */
+    --card-hover: 221 83% 53%; /* Vibrant blue */
+    --button-bg: 221 83% 53%; /* Vibrant blue */
+    --button-text: 0 0% 98%; /* Off-white */
+    --button-active: 221 83% 45%; /* Darker blue */
+    --footer-bg: 0 0% 4%; /* Almost black */
+    --footer-text: 0 0% 70%; /* Light gray */
+    --footer-accent: 221 83% 53%; /* Vibrant blue */
+    --link-color: 221 83% 53%; /* Vibrant blue */
+    --dialog-bg: 0 0% 10%; /* Dark background */
+    --dialog-text: 0 0% 98%; /* Off-white */
+    --dialog-border: 0 0% 20%; /* Dark border */
   }
 }
 
