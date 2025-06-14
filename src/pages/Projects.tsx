@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowRight, ExternalLink, Search, X } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 
 interface Project {
   id: string;
@@ -13,6 +14,9 @@ interface Project {
 }
 
 const Projects: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
   const projects: Project[] = [
     {
       id: 'smart-home-ai',
@@ -64,25 +68,116 @@ const Projects: React.FC = () => {
     }
   ];
 
+  // Get all unique technologies for filter tags
+  const allTechnologies = useMemo(() => {
+    const techs = new Set<string>();
+    projects.forEach(project => {
+      project.technologies.forEach(tech => techs.add(tech));
+    });
+    return Array.from(techs).sort();
+  }, [projects]);
+
+  // Filter projects based on search term and selected tags
+  const filteredProjects = useMemo(() => {
+    return projects.filter(project => {
+      const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           project.description.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      const matchesTags = selectedTags.length === 0 || 
+                         selectedTags.some(tag => project.technologies.includes(tag));
+      
+      return matchesSearch && matchesTags;
+    });
+  }, [projects, searchTerm, selectedTags]);
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags(prev => 
+      prev.includes(tag) 
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    );
+  };
+
+  const clearFilters = () => {
+    setSearchTerm('');
+    setSelectedTags([]);
+  };
+
   return (
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               My Projects
             </span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             A collection of AI and IoT projects showcasing innovative solutions 
             for real-world problems across various industries.
           </p>
+
+          {/* Search and Filter Section */}
+          <div className="max-w-4xl mx-auto space-y-6">
+            {/* Search Bar */}
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <Input
+                type="text"
+                placeholder="Search projects..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 bg-slate-800/50 border-slate-600 text-white placeholder:text-gray-400 focus:border-blue-500"
+              />
+            </div>
+
+            {/* Filter Tags */}
+            <div className="space-y-3">
+              <div className="flex flex-wrap gap-2 justify-center">
+                {allTechnologies.map((tech) => (
+                  <button
+                    key={tech}
+                    onClick={() => toggleTag(tech)}
+                    className={`px-3 py-1 text-sm rounded-full border transition-all duration-200 ${
+                      selectedTags.includes(tech)
+                        ? 'bg-blue-600 text-white border-blue-500'
+                        : 'bg-slate-800/50 text-gray-300 border-slate-600 hover:border-blue-500/50'
+                    }`}
+                  >
+                    {tech}
+                  </button>
+                ))}
+              </div>
+              
+              {/* Clear Filters */}
+              {(searchTerm || selectedTags.length > 0) && (
+                <div className="flex justify-center">
+                  <button
+                    onClick={clearFilters}
+                    className="flex items-center space-x-2 text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    <X size={16} />
+                    <span>Clear filters</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
+
+        {/* Results Count */}
+        {(searchTerm || selectedTags.length > 0) && (
+          <div className="text-center mb-8">
+            <p className="text-gray-400">
+              Showing {filteredProjects.length} of {projects.length} projects
+            </p>
+          </div>
+        )}
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
               className="group bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 hover:scale-105"
@@ -111,7 +206,11 @@ const Projects: React.FC = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-blue-600/20 text-blue-300 text-xs rounded-full border border-blue-500/30"
+                      className={`px-3 py-1 text-xs rounded-full border transition-all duration-200 ${
+                        selectedTags.includes(tech)
+                          ? 'bg-blue-600/30 text-blue-300 border-blue-500/50'
+                          : 'bg-blue-600/20 text-blue-300 border-blue-500/30'
+                      }`}
                     >
                       {tech}
                     </span>
@@ -142,6 +241,19 @@ const Projects: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* No Results */}
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-400 text-lg">No projects found matching your criteria.</p>
+            <button
+              onClick={clearFilters}
+              className="mt-4 text-blue-400 hover:text-blue-300 transition-colors"
+            >
+              Clear filters to see all projects
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
