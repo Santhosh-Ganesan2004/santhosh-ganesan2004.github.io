@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, Briefcase, Code, Brain, Cpu, Wifi } from 'lucide-react';
+import { ArrowRight, Award, Briefcase, Code, Brain, Cpu, Wifi, Users, Lightbulb, Target, MessageCircle } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
 import TypeWriter from '../components/TypeWriter';
 
@@ -10,7 +10,11 @@ const Home: React.FC = () => {
     { name: 'Artificial Intelligence', icon: Brain, color: 'from-purple-600 to-pink-600' },
     { name: 'IoT Development', icon: Wifi, color: 'from-blue-600 to-cyan-600' },
     { name: 'Machine Learning', icon: Cpu, color: 'from-green-600 to-teal-600' },
-    { name: 'Programming', icon: Code, color: 'from-orange-600 to-red-600' }
+    { name: 'Programming', icon: Code, color: 'from-orange-600 to-red-600' },
+    { name: 'Team Leadership', icon: Users, color: 'from-indigo-600 to-purple-600' },
+    { name: 'Problem Solving', icon: Lightbulb, color: 'from-yellow-600 to-orange-600' },
+    { name: 'Project Management', icon: Target, color: 'from-red-600 to-pink-600' },
+    { name: 'Communication', icon: MessageCircle, color: 'from-teal-600 to-green-600' }
   ];
 
   return (
@@ -18,7 +22,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-2 gap-6 items-center">
             {/* Photo */}
             <div className="flex justify-center md:justify-start">
               <div className="relative">
@@ -45,7 +49,7 @@ const Home: React.FC = () => {
               </h2>
               <TypeWriter
                 text="I am a passionate and driven AI + IoT engineer in training, blending cutting-edge artificial intelligence with the power of the Internet of Things to create innovative, impactful solutions. With a solid foundation in programming, machine learning, and embedded systems, I thrive at the intersection of software and hardware. My projects range from smart systems to AI-powered applications, demonstrating my ability to turn ideas into reality. I'm constantly learning, exploring new technologies, and aiming to bridge the gap between technology and real-world challenges."
-                speed={30}
+                speed={2000}
                 className="text-lg text-slate-600 dark:text-gray-400 leading-relaxed max-w-2xl mb-8"
               />
               <blockquote className="text-xl italic text-blue-600 dark:text-blue-300 border-l-4 border-blue-500 pl-4">
@@ -60,7 +64,7 @@ const Home: React.FC = () => {
       <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h3 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            Core Skills
+            Skills
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
