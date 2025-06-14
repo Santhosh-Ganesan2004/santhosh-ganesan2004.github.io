@@ -24,10 +24,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-lg flex items-center justify-center">
-                <span className="text-slate-900 font-bold text-lg">AI</span>
+                <span className="text-slate-900 font-bold text-lg">SG</span>
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Alex Johnson
+                Santhosh Ganesan
               </span>
             </Link>
 
@@ -130,12 +130,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <p className="text-gray-400 text-sm">
-                © 2024 Alex Johnson. All rights reserved.
+                © 2024 Santhosh Ganesan. All rights reserved.
               </p>
             </div>
             <div className="flex space-x-6">
               <a
-                href="https://linkedin.com/in/alexjohnson"
+                href="https://linkedin.com/in/santhoshganesan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-400 transition-colors"
@@ -143,7 +143,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="https://twitter.com/alexjohnson"
+                href="https://twitter.com/santhoshganesan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-400 transition-colors"
@@ -151,7 +151,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Twitter size={20} />
               </a>
               <a
-                href="https://instagram.com/alexjohnson"
+                href="https://instagram.com/santhoshganesan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-pink-400 transition-colors"
@@ -159,7 +159,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://github.com/alexjohnson"
+                href="https://github.com/santhoshganesan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
