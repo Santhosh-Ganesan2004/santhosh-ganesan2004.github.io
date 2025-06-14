@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 
@@ -22,9 +21,9 @@ const ContactForm: React.FC = () => {
     const subject = `Portfolio Contact from ${formData.name}`;
     const body = `Hi Alex,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\nBest regards,\n${formData.name}`;
     
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=alex.johnson@email.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl = `mailto:alex.johnson@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
-    window.open(gmailUrl, '_blank');
+    window.location.href = mailtoUrl;
     
     // Reset form
     setFormData({ name: '', email: '', message: '' });
