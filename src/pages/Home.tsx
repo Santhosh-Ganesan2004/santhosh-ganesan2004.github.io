@@ -22,7 +22,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-6 items-center">
+          <div className="grid md:grid-cols-2 gap-4 items-center">
             {/* Photo */}
             <div className="flex justify-center md:justify-start">
               <div className="relative">
