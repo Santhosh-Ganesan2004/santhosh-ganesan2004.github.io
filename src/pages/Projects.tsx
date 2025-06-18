@@ -1,97 +1,79 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ExternalLink, Search, X } from 'lucide-react';
-import { Input } from '@/components/ui/input';
+import { ArrowRight, Search, X } from 'lucide-react';
+import { getProjects } from '../lib/content';
+import ScrollToTop from '../components/ScrollToTop';
+import { Input } from '../components/ui/input';
 
 interface Project {
-  id: string;
   title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  link?: string;
+  date: string;
+  tags: string[];
+  excerpt: string;
+  image?: string;
+  technologies?: string[];
+  content: string;
+  slug: string;
+  meta?: {
+    title?: string;
+    date?: string;
+    tags?: string[];
+    excerpt?: string;
+    image?: string;
+    technologies?: string[];
+    content?: string;
+  };
 }
 
 const Projects: React.FC = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const projects: Project[] = [
-    {
-      id: 'smart-home-ai',
-      title: 'Smart Home AI Assistant',
-      description: 'An intelligent home automation system that learns user preferences and optimizes energy consumption using machine learning algorithms.',
-      image: 'https://images.unsplash.com/photo-1558618667-fcd25c85cd64?w=400&h=300&fit=crop',
-      technologies: ['Python', 'TensorFlow', 'Raspberry Pi', 'MQTT', 'React'],
-      link: 'https://github.com/alexjohnson/smart-home-ai'
-    },
-    {
-      id: 'predictive-maintenance',
-      title: 'Predictive Maintenance System',
-      description: 'IoT-based system for industrial equipment monitoring with AI-powered failure prediction to reduce downtime and maintenance costs.',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop',
-      technologies: ['AWS IoT', 'Python', 'Docker', 'PostgreSQL', 'Grafana'],
-      link: 'https://github.com/alexjohnson/predictive-maintenance'
-    },
-    {
-      id: 'edge-ai-camera',
-      title: 'Edge AI Security Camera',
-      description: 'Real-time object detection and facial recognition system running on edge devices with privacy-first approach.',
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop',
-      technologies: ['OpenCV', 'PyTorch', 'NVIDIA Jetson', 'FastAPI', 'WebRTC'],
-      link: 'https://github.com/alexjohnson/edge-ai-camera'
-    },
-    {
-      id: 'agricultural-iot',
-      title: 'Smart Agriculture Platform',
-      description: 'Comprehensive IoT solution for precision farming with soil monitoring, weather prediction, and crop health analysis.',
-      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop',
-      technologies: ['LoRaWAN', 'Node.js', 'MongoDB', 'React', 'D3.js'],
-      link: 'https://github.com/alexjohnson/agricultural-iot'
-    },
-    {
-      id: 'traffic-optimization',
-      title: 'AI Traffic Optimization',
-      description: 'Intelligent traffic management system using computer vision and reinforcement learning to optimize traffic flow in smart cities.',
-      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop',
-      technologies: ['Python', 'OpenCV', 'TensorFlow', 'Flask', 'PostgreSQL'],
-      link: 'https://github.com/alexjohnson/traffic-optimization'
-    },
-    {
-      id: 'health-monitoring',
-      title: 'Wearable Health Monitor',
-      description: 'Real-time health monitoring system with anomaly detection for early warning of health issues using wearable sensors.',
-      image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&h=300&fit=crop',
-      technologies: ['Arduino', 'Python', 'Firebase', 'Flutter', 'TensorFlow Lite'],
-      link: 'https://github.com/alexjohnson/health-monitoring'
-    }
-  ];
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const fetchedProjects = await getProjects();
+        console.log('Fetched projects:', fetchedProjects);
+        setProjects(fetchedProjects);
+      } catch (err) {
+        setError('Failed to load projects');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  // Get all unique technologies for filter tags
-  const allTechnologies = useMemo(() => {
-    const techs = new Set<string>();
+    fetchProjects();
+  }, []);
+
+  // Get all unique technology tags
+  const allTags = useMemo(() => {
+    const tags = new Set<string>();
     projects.forEach(project => {
-      project.technologies.forEach(tech => techs.add(tech));
+      project.meta?.technologies?.forEach(tag => tags.add(tag));
     });
-    return Array.from(techs).sort();
+    return Array.from(tags).sort();
   }, [projects]);
 
   // Filter projects based on search term and selected tags
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
-      const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           project.description.toLowerCase().includes(searchTerm.toLowerCase());
-      
-      const matchesTags = selectedTags.length === 0 || 
-                         selectedTags.some(tag => project.technologies.includes(tag));
-      
+      const title = project.meta?.title || '';
+      const excerpt = project.meta?.excerpt || '';
+      const matchesSearch = title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesTags = selectedTags.length === 0 ||
+        selectedTags.some(tag => project.meta?.technologies?.includes(tag));
       return matchesSearch && matchesTags;
     });
   }, [projects, searchTerm, selectedTags]);
 
   const toggleTag = (tag: string) => {
-    setSelectedTags(prev => 
-      prev.includes(tag) 
+    setSelectedTags(prev =>
+      prev.includes(tag)
         ? prev.filter(t => t !== tag)
         : [...prev, tag]
     );
@@ -102,6 +84,31 @@ const Projects: React.FC = () => {
     setSelectedTags([]);
   };
 
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+  };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-red-500">{error}</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -109,12 +116,11 @@ const Projects: React.FC = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              My Projects
+              Projects
             </span>
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-8">
-            A collection of AI and IoT projects showcasing innovative solutions 
-            for real-world problems across various industries.
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+            A collection of my work, showcasing various technologies and problem-solving approaches.
           </p>
 
           {/* Search and Filter Section */}
@@ -134,21 +140,20 @@ const Projects: React.FC = () => {
             {/* Filter Tags */}
             <div className="space-y-3">
               <div className="flex flex-wrap gap-2 justify-center">
-                {allTechnologies.map((tech) => (
+                {allTags.map((tag) => (
                   <button
-                    key={tech}
-                    onClick={() => toggleTag(tech)}
+                    key={tag}
+                    onClick={() => toggleTag(tag)}
                     className={`px-3 py-1 text-sm rounded-full border transition-all duration-200 ${
-                      selectedTags.includes(tech)
+                      selectedTags.includes(tag)
                         ? 'bg-blue-600 text-white border-blue-600'
                         : 'bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-600 hover:border-blue-500 dark:hover:border-blue-400'
                     }`}
                   >
-                    {tech}
+                    {tag}
                   </button>
                 ))}
               </div>
-              
               {/* Clear Filters */}
               {(searchTerm || selectedTags.length > 0) && (
                 <div className="flex justify-center">
@@ -177,83 +182,56 @@ const Projects: React.FC = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-700/80 hover:border-blue-500/50 dark:hover:border-blue-400/50 transition-all duration-300 hover:scale-105 shadow-xl"
+            <article
+              key={project.slug}
+              className="group bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-300 hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.025] border border-slate-100 dark:border-slate-700"
             >
-              {/* Project Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
-              </div>
-
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-4 text-sm leading-relaxed">
-                  {project.description}
+              {project.meta?.image && (
+                <div className="relative h-48 w-full overflow-hidden">
+                  <img
+                    src={project.meta.image}
+                    alt={project.meta.title}
+                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              )}
+              <div className="flex flex-col flex-1 p-6">
+                <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 mb-4">
+                  <div className="flex items-center gap-1">
+                    <span>{formatDate(project.meta?.date || '')}</span>
+                  </div>
+                </div>
+                <h2 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white line-clamp-2">
+                  {project.meta?.title}
+                </h2>
+                <p className="text-slate-600 dark:text-slate-300 mb-4 line-clamp-3">
+                  {project.meta?.excerpt}
                 </p>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech) => (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.meta?.technologies?.map((tech) => (
                     <span
                       key={tech}
-                      className={`px-3 py-1 text-xs rounded-full border transition-all duration-200 ${
-                        selectedTags.includes(tech)
-                          ? 'bg-blue-600/20 text-blue-600 dark:text-blue-400 border-blue-500/50'
-                          : 'bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border-blue-500/30'
-                      }`}
+                      className="px-2 py-1 text-xs rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-medium"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-
-                {/* Actions */}
-                <div className="flex space-x-3">
+                <div className="mt-auto pt-2">
                   <Link
-                    to={`/projects/${project.id}`}
-                    className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white text-center py-2 px-4 rounded-lg transition-all duration-200 flex items-center justify-center space-x-2"
+                    to={`/projects/${project.slug}`}
+                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 dark:hover:bg-blue-500 transition-colors text-sm group-hover:scale-105 group-hover:shadow-lg"
                   >
-                    <span>View More</span>
-                    <ArrowRight size={16} />
+                    View Project
+                    <ArrowRight size={16} className="ml-2" />
                   </Link>
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
-                    >
-                      <ExternalLink size={16} />
-                    </a>
-                  )}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
-
-        {/* No Results */}
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-slate-600 dark:text-slate-400 text-lg">No projects found matching your criteria.</p>
-            <button
-              onClick={clearFilters}
-              className="mt-4 text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
-            >
-              Clear filters to see all projects
-            </button>
-          </div>
-        )}
       </div>
+      <ScrollToTop />
     </div>
   );
 };

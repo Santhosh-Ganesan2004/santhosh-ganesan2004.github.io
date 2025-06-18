@@ -1,108 +1,76 @@
-
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Search, X, Calendar, Clock } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { getBlogPosts } from '../lib/content';
 
 interface BlogPost {
-  id: string;
   title: string;
-  excerpt: string;
-  content: string;
-  image: string;
+  date: string;
   tags: string[];
-  publishedAt: string;
-  readTime: string;
+  excerpt: string;
+  image?: string;
+  category?: string;
+  readTime?: string;
+  content: string;
+  slug: string;
+  meta?: {
+    title?: string;
+    date?: string;
+    tags?: string[];
+    excerpt?: string;
+    readTime?: string;
+    image?: string;
+    category?: string;
+    content?: string;
+  };
 }
 
 const Blog: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const blogPosts: BlogPost[] = [
-    {
-      id: 'getting-started-with-iot',
-      title: 'Getting Started with IoT Development: A Beginner\'s Guide',
-      excerpt: 'Learn the fundamentals of IoT development, from choosing the right hardware to building your first connected device.',
-      content: 'Full blog post content...',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop',
-      tags: ['IoT', 'Beginner', 'Hardware', 'Tutorial'],
-      publishedAt: '2024-01-15',
-      readTime: '8 min read'
-    },
-    {
-      id: 'ai-edge-computing',
-      title: 'AI at the Edge: Bringing Intelligence to IoT Devices',
-      excerpt: 'Explore how edge computing is revolutionizing AI applications in IoT, reducing latency and improving privacy.',
-      content: 'Full blog post content...',
-      image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop',
-      tags: ['AI', 'Edge Computing', 'IoT', 'Machine Learning'],
-      publishedAt: '2024-02-03',
-      readTime: '12 min read'
-    },
-    {
-      id: 'smart-home-automation',
-      title: 'Building Smart Home Automation with Raspberry Pi',
-      excerpt: 'Step-by-step guide to creating your own smart home system using Raspberry Pi and various sensors.',
-      content: 'Full blog post content...',
-      image: 'https://images.unsplash.com/photo-1558618667-fcd25c85cd64?w=400&h=300&fit=crop',
-      tags: ['Raspberry Pi', 'Smart Home', 'Automation', 'DIY'],
-      publishedAt: '2024-02-20',
-      readTime: '15 min read'
-    },
-    {
-      id: 'machine-learning-sensors',
-      title: 'Using Machine Learning for Sensor Data Analysis',
-      excerpt: 'Discover how to apply machine learning algorithms to analyze and predict patterns in sensor data.',
-      content: 'Full blog post content...',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop',
-      tags: ['Machine Learning', 'Sensors', 'Data Analysis', 'Python'],
-      publishedAt: '2024-03-10',
-      readTime: '10 min read'
-    },
-    {
-      id: 'iot-security-best-practices',
-      title: 'IoT Security: Best Practices for Connected Devices',
-      excerpt: 'Essential security considerations and best practices for developing secure IoT applications.',
-      content: 'Full blog post content...',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop',
-      tags: ['Security', 'IoT', 'Best Practices', 'Cybersecurity'],
-      publishedAt: '2024-04-05',
-      readTime: '7 min read'
-    },
-    {
-      id: 'future-of-ai-iot',
-      title: 'The Future of AI and IoT: Trends and Predictions',
-      excerpt: 'Exploring upcoming trends and innovations in the convergence of artificial intelligence and IoT.',
-      content: 'Full blog post content...',
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop',
-      tags: ['AI', 'IoT', 'Future Tech', 'Trends'],
-      publishedAt: '2024-04-22',
-      readTime: '9 min read'
-    }
-  ];
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const fetchedPosts = await getBlogPosts();
+        console.log('Fetched posts:', fetchedPosts);
+        setPosts(fetchedPosts);
+      } catch (err) {
+        setError('Failed to load blog posts');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   // Get all unique tags for filter
   const allTags = useMemo(() => {
     const tags = new Set<string>();
-    blogPosts.forEach(post => {
-      post.tags.forEach(tag => tags.add(tag));
+    posts.forEach(post => {
+      post.tags?.forEach(tag => tags.add(tag));
     });
     return Array.from(tags).sort();
-  }, [blogPosts]);
+  }, [posts]);
 
   // Filter blog posts based on search term and selected tags
   const filteredPosts = useMemo(() => {
-    return blogPosts.filter(post => {
-      const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-      
+    return posts.filter(post => {
+      const title = post.meta?.title || '';
+      const excerpt = post.meta?.excerpt || '';
+      const matchesSearch = title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           excerpt.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesTags = selectedTags.length === 0 || 
-                         selectedTags.some(tag => post.tags.includes(tag));
-      
+                         selectedTags.some(tag => post.meta?.tags?.includes(tag));
       return matchesSearch && matchesTags;
     });
-  }, [blogPosts, searchTerm, selectedTags]);
+  }, [posts, searchTerm, selectedTags]);
 
   const toggleTag = (tag: string) => {
     setSelectedTags(prev => 
@@ -125,6 +93,22 @@ const Blog: React.FC = () => {
       day: 'numeric' 
     });
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-red-500">{error}</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
@@ -192,91 +176,69 @@ const Blog: React.FC = () => {
         {(searchTerm || selectedTags.length > 0) && (
           <div className="text-center mb-8">
             <p className="text-slate-600 dark:text-slate-400">
-              Showing {filteredPosts.length} of {blogPosts.length} posts
+              Showing {filteredPosts.length} of {posts.length} posts
             </p>
           </div>
         )}
 
         {/* Blog Posts Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {filteredPosts.map((post) => (
             <article
-              key={post.id}
-              className="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-700/80 hover:border-blue-500/50 dark:hover:border-blue-400/50 transition-all duration-300 hover:scale-105 shadow-xl"
+              key={post.slug}
+              className="group bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-300 hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.025] border border-slate-100 dark:border-slate-700"
             >
-              {/* Post Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
-              </div>
-
-              {/* Post Content */}
-              <div className="p-6">
-                <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                  {post.title}
-                </h2>
-                
-                <p className="text-slate-600 dark:text-slate-400 mb-4 text-sm leading-relaxed line-clamp-3">
-                  {post.excerpt}
-                </p>
-
-                {/* Meta Information */}
-                <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-500 mb-4">
-                  <div className="flex items-center space-x-2">
-                    <Calendar size={14} />
-                    <span>{formatDate(post.publishedAt)}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Clock size={14} />
-                    <span>{post.readTime}</span>
-                  </div>
+              {post.meta?.image && (
+                <div className="relative h-52 w-full overflow-hidden">
+                  <img
+                    src={post.meta.image}
+                    alt={post.meta.title}
+                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {post.tags.map((tag) => (
+              )}
+              <div className="flex flex-col flex-1 p-6">
+                <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 mb-3">
+                  <div className="flex items-center gap-1">
+                    <Calendar size={16} />
+                    <span>{formatDate(post.meta?.date || '')}</span>
+                  </div>
+                  {post.meta?.readTime && (
+                    <div className="flex items-center gap-1">
+                      <Clock size={16} />
+                      <span>{post.meta.readTime}</span>
+                    </div>
+                  )}
+                </div>
+                <h2 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white line-clamp-2">
+                  {post.meta?.title}
+                </h2>
+                <p className="text-slate-600 dark:text-slate-300 mb-4 line-clamp-3">
+                  {post.meta?.excerpt}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {post.meta?.tags?.map((tag) => (
                     <span
                       key={tag}
-                      className={`px-3 py-1 text-xs rounded-full border transition-all duration-200 ${
-                        selectedTags.includes(tag)
-                          ? 'bg-blue-600/20 text-blue-600 dark:text-blue-400 border-blue-500/50'
-                          : 'bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border-blue-500/30'
-                      }`}
+                      className="px-2 py-1 text-xs rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-medium"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-
-                {/* Read More Button */}
-                <Link
-                  to={`/blog/${post.id}`}
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-2 px-4 rounded-lg transition-all duration-200 text-sm"
-                >
-                  <span>Read More</span>
-                  <ArrowRight size={16} />
-                </Link>
+                <div className="mt-auto pt-2">
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 dark:hover:bg-blue-500 transition-colors text-sm group-hover:scale-105 group-hover:shadow-lg"
+                  >
+                    Read More
+                    <ArrowRight size={16} className="ml-2" />
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
         </div>
-
-        {/* No Results */}
-        {filteredPosts.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-slate-600 dark:text-slate-400 text-lg">No blog posts found matching your criteria.</p>
-            <button
-              onClick={clearFilters}
-              className="mt-4 text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
-            >
-              Clear filters to see all posts
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );

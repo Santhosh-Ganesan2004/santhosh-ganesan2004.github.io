@@ -1,42 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProject, MarkdownContent } from '../lib/content';
-import { MarkdownContent as MarkdownContentComponent } from '../components/MarkdownContent';
+import { getCertification } from '../lib/content';
+import MarkdownRenderer from '../components/MarkdownRenderer';
 
-export const ProjectDetail: React.FC = () => {
+const CertificationDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [project, setProject] = useState<MarkdownContent | null>(null);
+  const [certification, setCertification] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchProject = async () => {
+    const fetchCertification = async () => {
       if (!slug) return;
       try {
-        const fetchedProject = await getProject(slug);
-        setProject(fetchedProject);
+        const fetchedCertification = await getCertification(slug);
+        setCertification(fetchedCertification);
       } catch (err) {
-        setError('Failed to load project');
+        setError('Failed to load certification');
         console.error(err);
       } finally {
         setLoading(false);
       }
     };
-    fetchProject();
+    fetchCertification();
   }, [slug]);
 
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-        </div>
+      </div>
     );
   }
 
-  if (error || !project) {
+  if (error || !certification) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="text-red-500">{error || 'Project not found'}</div>
+        <div className="text-red-500">{error || 'Certification not found'}</div>
       </div>
     );
   }
@@ -44,10 +44,10 @@ export const ProjectDetail: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        <MarkdownContentComponent content={project} />
+        <MarkdownRenderer meta={certification.meta} html={certification.html} />
       </div>
     </div>
   );
 };
 
-export default ProjectDetail;
+export default CertificationDetail; 

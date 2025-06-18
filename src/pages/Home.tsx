@@ -28,7 +28,7 @@ const Home: React.FC = () => {
               <div className="relative">
                 <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    src="src/images/profile_pic.jpg"
                     alt="Santhosh Ganesan"
                     className="w-full h-full object-cover"
                   />
