@@ -176,7 +176,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Twitter size={20} />
               </a>
               <a
-                href="https://github.com/Santhosh-Ganesan2004/"
+                href="https://github.com/Santhosh-Ganesan2004"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors"
