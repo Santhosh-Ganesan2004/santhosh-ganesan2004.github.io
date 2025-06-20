@@ -23,7 +23,7 @@ const ContactForm: React.FC = () => {
     const subject = formData.subject || `Portfolio Contact from ${formData.name}`;
     const body = `Hi Santhosh,\n\nName: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}\n\nBest regards,\n${formData.name}`;
     
-    const mailtoUrl = `mailto:santhosh.ganesan@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl = `mailto:santhoshganesan2004@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     window.location.href = mailtoUrl;
     
