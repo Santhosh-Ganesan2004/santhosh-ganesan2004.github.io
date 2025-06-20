@@ -26,10 +26,10 @@ const Home: React.FC = () => {
             <div className="flex justify-center items-center h-full">
               <div className="relative">
                 <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl relative" style={{ left: '-4px', top: '2px' }}>
-                <img
-                  src="/profile_pic.jpg"
-                  alt="Santhosh Ganesan"
-                  className="w-full h-full object-cover"
+                  <img
+                    src="src/images/profile_pic.jpg"
+                    alt="Santhosh Ganesan"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-full blur-2xl -z-10"></div>
