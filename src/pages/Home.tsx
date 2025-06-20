@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Award, Briefcase, Code, Brain, Cpu, Wifi, Users, Lightbulb, Target, MessageCircle } from 'lucide-react';
@@ -24,9 +23,9 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-4 items-center">
             {/* Photo */}
-            <div className="flex justify-center md:justify-start">
+            <div className="flex justify-center items-center h-full">
               <div className="relative">
-                <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl">
+                <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl relative" style={{ left: '-4px', top: '2px' }}>
                   <img
                     src="src/images/profile_pic.jpg"
                     alt="Santhosh Ganesan"

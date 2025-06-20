@@ -190,12 +190,12 @@ const Blog: React.FC = () => {
             >
               {post.meta?.image && (
                 <div className="relative h-52 w-full overflow-hidden">
-                  <img
+                <img
                     src={post.meta.image}
                     alt={post.meta.title}
                     className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
+                />
+              </div>
               )}
               <div className="flex flex-col flex-1 p-6">
                 <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 mb-3">
@@ -227,13 +227,13 @@ const Blog: React.FC = () => {
                   ))}
                 </div>
                 <div className="mt-auto pt-2">
-                  <Link
-                    to={`/blog/${post.slug}`}
+                <Link
+                  to={`/blog/${post.slug}`}
                     className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 dark:hover:bg-blue-500 transition-colors text-sm group-hover:scale-105 group-hover:shadow-lg"
-                  >
+                >
                     Read More
-                    <ArrowRight size={16} className="ml-2" />
-                  </Link>
+                  <ArrowRight size={16} className="ml-2" />
+                </Link>
                 </div>
               </div>
             </article>

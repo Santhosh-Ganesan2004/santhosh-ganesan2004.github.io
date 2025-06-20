@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getBlogPost, MarkdownContent } from '../lib/content';
+import { getBlogPost } from '../lib/content';
 import { MarkdownContent as MarkdownContentComponent } from '../components/MarkdownContent';
+import type { MarkdownContent } from '../lib/markdown';
 
 export const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -37,8 +38,14 @@ export const BlogPost: React.FC = () => {
 
   if (error || !post) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-red-500">{error || 'Post not found'}</div>
+      <div className="flex flex-col items-center justify-center min-h-screen gap-4">
+        <div className="text-red-500 text-xl font-semibold">Blog not found</div>
+        <button
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+          onClick={() => window.location.href = '/blog'}
+        >
+          Back to Blogs
+        </button>
       </div>
     );
   }

@@ -105,9 +105,9 @@ const Certifications: React.FC = () => {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
       day: 'numeric',
     });
   };
@@ -131,13 +131,13 @@ const Certifications: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              Certifications
-            </span>
-          </h1>
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                Certifications
+              </span>
+            </h1>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
             Professional certifications and achievements demonstrating expertise in various technologies and domains.
           </p>
@@ -212,14 +212,14 @@ const Certifications: React.FC = () => {
                     alt={cert.meta.title}
                     className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                   />
-                </div>
-              )}
+                  </div>
+                )}
               <div className="flex flex-col flex-1 p-6">
                 <div className="text-sm text-slate-500 dark:text-slate-400 mb-4">
                   <div className="flex items-center gap-1">
                     <span>{formatDate(cert.meta?.date || '')}</span>
                   </div>
-                </div>
+                      </div>
                 <h2 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white line-clamp-2">
                   {cert.meta?.title}
                 </h2>
@@ -233,7 +233,7 @@ const Certifications: React.FC = () => {
                   <span className="px-2 py-1 text-xs rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-medium">
                     {cert.meta?.certificateId}
                   </span>
-                </div>
+                    </div>
                 <div className="mt-auto pt-2 flex justify-between items-center">
                   <button
                     onClick={() => setOpenSlug(cert.slug)}
@@ -243,17 +243,17 @@ const Certifications: React.FC = () => {
                     <ArrowRight size={16} className="ml-2" />
                   </button>
                   {cert.meta?.link && (
-                    <a
+                      <a
                       href={cert.meta.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       className="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
-                    >
+                      >
                       Verify Certificate
-                    </a>
+                      </a>
                   )}
-                </div>
-              </div>
+                    </div>
+                  </div>
             </article>
           ))}
         </div>

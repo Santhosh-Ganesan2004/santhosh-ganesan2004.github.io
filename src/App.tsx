@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -15,6 +15,11 @@ import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
+function CertificationsSlugRedirect() {
+  const { slug } = useParams();
+  return <Navigate to={`/certification/${slug}`} replace />;
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -30,6 +35,7 @@ const App = () => (
               <Route path="/projects/:slug" element={<ProjectDetail />} />
               <Route path="/certifications" element={<Certifications />} />
               <Route path="/certification/:slug" element={<CertificationDetail />} />
+              <Route path="/certifications/:slug" element={<CertificationsSlugRedirect />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="*" element={<NotFound />} />

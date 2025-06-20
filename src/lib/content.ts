@@ -1,9 +1,9 @@
 import { parseMarkdown } from './markdown';
 
 // Static globs for each content type
-const blogFiles = import.meta.glob('../markdown/blog/*.md', { query: '?raw', import: 'default' });
-const certificationFiles = import.meta.glob('../markdown/certifications/*.md', { query: '?raw', import: 'default' });
-const projectFiles = import.meta.glob('../markdown/projects/*.md', { query: '?raw', import: 'default' });
+const blogFiles = import.meta.glob('../markdown/blog/*.md', { query: '?raw', import: 'default' }) as Record<string, () => Promise<string>>;
+const certificationFiles = import.meta.glob('../markdown/certifications/*.md', { query: '?raw', import: 'default' }) as Record<string, () => Promise<string>>;
+const projectFiles = import.meta.glob('../markdown/projects/*.md', { query: '?raw', import: 'default' }) as Record<string, () => Promise<string>>;
 
 async function loadMarkdown(files: Record<string, () => Promise<string>>) {
   const items = [];

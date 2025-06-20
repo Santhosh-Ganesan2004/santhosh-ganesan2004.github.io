@@ -35,8 +35,14 @@ const CertificationDetail: React.FC = () => {
 
   if (error || !certification) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-red-500">{error || 'Certification not found'}</div>
+      <div className="flex flex-col items-center justify-center min-h-screen gap-4">
+        <div className="text-red-500 text-xl font-semibold">Certification not found</div>
+        <button
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+          onClick={() => window.location.href = '/certifications'}
+        >
+          Back to Certifications
+        </button>
       </div>
     );
   }
