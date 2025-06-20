@@ -160,7 +160,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
             <div className="flex space-x-6">
               <a
-                href="https://linkedin.com/in/santhoshganesan"
+                href="https://www.linkedin.com/in/santhoshganesan2004/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -168,7 +168,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="https://twitter.com/santhoshganesan"
+                href="https://x.com/I_Am_Santi7704"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -176,7 +176,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Twitter size={20} />
               </a>
               <a
-                href="https://github.com/santhoshganesan"
+                href="https://github.com/Santhosh-Ganesan2004/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors"
