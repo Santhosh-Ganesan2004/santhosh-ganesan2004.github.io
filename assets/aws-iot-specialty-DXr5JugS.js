@@ -1,5 +1,5 @@
 const n=`---
-title: "AWS IoT Specialty Certification DEMO"
+title: "AWS IoT Specialty Certification"
 date: 2024-02-20
 provider: Amazon Web Services
 validUntil: 2027-02-20
