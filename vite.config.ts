@@ -14,7 +14,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: process.env.NODE_ENV === "production"
-    ? "/santhosh-ganesan2004.github.io/"
-    : "/",
+  base: "/",
 });
