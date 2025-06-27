@@ -14,5 +14,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/", // Correct for root-level deployment
+  base: process.env.NODE_ENV === "production"
+    ? "/santhosh-ganesan2004.github.io/"
+    : "/",
 });
