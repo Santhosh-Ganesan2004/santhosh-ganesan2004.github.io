@@ -1,5 +1,5 @@
 ---
-title: "Integrating AI with IoT: A Practical Guide"
+title: "Integrating AI with IoT: A Practical Guide DEMO"
 date: 2024-03-15
 tags: ai, iot, machine learning, edge computing
 excerpt: Learn how to effectively combine AI capabilities with IoT devices for smarter, more efficient systems.

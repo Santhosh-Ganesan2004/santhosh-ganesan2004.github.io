@@ -1,5 +1,5 @@
 ---
-title: "AWS IoT Specialty Certification"
+title: "AWS IoT Specialty Certification DEMO"
 date: 2024-02-20
 provider: Amazon Web Services
 validUntil: 2027-02-20
